@@ -1,0 +1,56 @@
+<svg width="180" height="60" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffc107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb300;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a237e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#303f9f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo Icon - Stylized scales of justice with modern twist -->
+  <g transform="translate(10, 8)">
+    <!-- Base circle -->
+    <circle cx="20" cy="22" r="20" fill="url(#logoGradient)" opacity="0.1"/>
+    
+    <!-- Scales base -->
+    <rect x="18" y="30" width="4" height="12" fill="url(#logoGradient)"/>
+    
+    <!-- Scale beam -->
+    <rect x="8" y="16" width="24" height="2" fill="url(#logoGradient)"/>
+    
+    <!-- Left scale -->
+    <path d="M8 16 L4 12 L12 12 Z" fill="url(#logoGradient)" opacity="0.8"/>
+    <rect x="6" y="12" width="4" height="1" fill="url(#logoGradient)"/>
+    
+    <!-- Right scale -->
+    <path d="M32 16 L28 12 L36 12 Z" fill="url(#logoGradient)" opacity="0.8"/>
+    <rect x="30" y="12" width="4" height="1" fill="url(#logoGradient)"/>
+    
+    <!-- Modern accent - geometric shapes -->
+    <rect x="14" y="8" width="2" height="2" fill="#ffc107" transform="rotate(45 15 9)"/>
+    <rect x="24" y="8" width="2" height="2" fill="#ffc107" transform="rotate(45 25 9)"/>
+    
+    <!-- IP symbol -->
+    <text x="20" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="700" fill="#1a237e">IP</text>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="55" y="25" font-family="Playfair Display, serif" font-size="16" font-weight="700" fill="url(#textGradient)">
+    Agile Legal
+  </text>
+  <text x="55" y="40" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#6c757d">
+    SOLUTIONS
+  </text>
+  
+  <!-- ISO Certification Badge -->
+  <rect x="55" y="45" width="80" height="10" rx="5" fill="#1a237e" opacity="0.1"/>
+  <text x="58" y="52" font-family="Inter, sans-serif" font-size="7" font-weight="600" fill="#1a237e">
+    ISO 9001:2015 CERTIFIED
+  </text>
+  
+  <!-- Modern accent line -->
+  <rect x="55" y="42" width="30" height="1" fill="url(#logoGradient)"/>
+</svg>
