@@ -1,4 +1,14 @@
 RewriteEngine On 
-RewriteCond %{HTTP_HOST} ^agileipr\.com [NC]
-RewriteCond %{SERVER_PORT} 80 
-RewriteRule ^(.*)$ https://www.agileipr.com/$1 [R=301,L]
+
+# 301 Permanent Redirect old domain (agileipr.com / www.agileipr.com) to new domain
+RewriteCond %{HTTP_HOST} ^(www\.)?agileipr\.com$ [NC]
+RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
+
+# Redirect non-www to www (agiletrademarkfiling.com -> www.agiletrademarkfiling.com)
+RewriteCond %{HTTP_HOST} ^agiletrademarkfiling\.com$ [NC]
+RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
