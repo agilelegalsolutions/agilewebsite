@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="96" fill="#0b346e"/>
+  <g transform="translate(16, 26) scale(0.85)">
+    <defs>
+      <linearGradient id="favGreen" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#008a4f"/>
+        <stop offset="50%" stop-color="#00b874"/>
+        <stop offset="100%" stop-color="#05e296"/>
+      </linearGradient>
+      <linearGradient id="favBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00b4d8"/>
+        <stop offset="50%" stop-color="#0077b6"/>
+        <stop offset="100%" stop-color="#03045e"/>
+      </linearGradient>
+      <linearGradient id="favSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#e2e8f0"/>
+      </linearGradient>
+    </defs>
+    <path d="M 60 380 L 195 70 L 235 155 L 125 380 Z" fill="url(#favGreen)" />
+    <path d="M 195 70 L 305 380 L 245 380 L 215 305 L 140 305 L 175 225 L 235 155 Z" fill="url(#favSilver)" />
+    <path d="M 245 155 C 310 85 410 75 480 135 C 500 150 515 170 525 195 L 450 235 C 445 220 435 205 420 195 C 380 165 315 180 275 230 Z" fill="url(#favBlue)" />
+    <path d="M 450 235 L 525 195 C 540 235 545 280 525 320 C 495 380 410 405 330 380 C 265 360 220 300 235 235 C 240 210 255 185 275 165 L 320 210 C 305 225 295 245 295 265 C 290 305 330 340 375 340 C 415 340 445 315 450 275 L 360 275 L 360 225 L 525 225 C 530 250 530 275 525 300 L 450 275 Z" fill="url(#favSilver)" />
+  </g>
+</svg>

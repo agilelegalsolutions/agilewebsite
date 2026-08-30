@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <!-- Green Peak Gradient for A -->
+    <linearGradient id="greenPeakGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#008a4f"/>
+      <stop offset="50%" stop-color="#00b874"/>
+      <stop offset="100%" stop-color="#05e296"/>
+    </linearGradient>
+    
+    <!-- Blue Swoosh Wave Gradient for G -->
+    <linearGradient id="blueWaveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="50%" stop-color="#0077b6"/>
+      <stop offset="100%" stop-color="#03045e"/>
+    </linearGradient>
+    
+    <!-- White/Silver Metallic Gradient for A & G Body -->
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#f0f4f8"/>
+      <stop offset="100%" stop-color="#d9e2ec"/>
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow -->
+    <filter id="logoShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#logoShadow)">
+    <!-- LEFT PEAK OF 'A' (Vibrant Green Slant) -->
+    <path d="M 60 380 L 195 70 L 235 155 L 125 380 Z" fill="url(#greenPeakGrad)" />
+
+    <!-- RIGHT LEG AND INNER STRUCTURE OF 'A' (Silver White) -->
+    <path d="M 195 70 L 305 380 L 245 380 L 215 305 L 140 305 L 175 225 L 235 155 Z" fill="url(#silverGrad)" />
+
+    <!-- BLUE CYAN GRADIENT WAVE ON TOP CURVE OF 'G' -->
+    <path d="M 245 155 C 310 85 410 75 480 135 C 500 150 515 170 525 195 L 450 235 C 445 220 435 205 420 195 C 380 165 315 180 275 230 Z" fill="url(#blueWaveGrad)" />
+
+    <!-- MAIN BODY OF 'G' (Silver White Sweeping G) -->
+    <path d="M 450 235 L 525 195 C 540 235 545 280 525 320 C 495 380 410 405 330 380 C 265 360 220 300 235 235 C 240 210 255 185 275 165 L 320 210 C 305 225 295 245 295 265 C 290 305 330 340 375 340 C 415 340 445 315 450 275 L 360 275 L 360 225 L 525 225 C 530 250 530 275 525 300 L 450 275 Z" fill="url(#silverGrad)" />
+  </g>
+</svg>
