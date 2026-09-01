@@ -10,7 +10,7 @@
     <title>Agile Legal Solutions® | Trademark Advocates in Delhi</title>
     <meta name="title" content="Agile Legal Solutions® | Trademark Advocates in Delhi">
     <meta name="description"
-        content="ISO 9000:2015 certified Law Firm & Trademark Advocates in Delhi with 19+ years experience. Expert Trade Mark search, filing, copyright, patent & IP litigation.">
+        content="ISO 9000:2015 certified Law Firm & Trademark Advocates in Delhi with 19+ yrs experience. Expert Trade Mark search, filing, copyright & IP litigation.">
     <meta name="keywords"
         content="Trade Mark, Trademark, Trademark Registration, Trademark Registration Advocate, Trade mark registration in Delhi, Trademark Advocate, Trademark Lawyer Delhi, Patent Attorney Delhi, Copyright Registration, Trademark Opposition, IP Litigation Lawyer, Agile Legal Solutions">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -63,12 +63,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.svg">
     <link rel="shortcut icon" href="favicon.svg">
 
-    <!-- DNS Prefetch & Resource Hints for Core Web Vitals -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://api.web3forms.com">
+    <link rel="preload" href="images/agile-logo-final.svg" as="image" type="image/svg+xml">
 
     <!-- Modern Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -233,11 +234,22 @@
     }
     </script>
 
-    <!-- JSON-LD Schema 3: Organization & E-A-T Person & BreadcrumbList Schema -->
+    <!-- JSON-LD Schema 3: WebSite, Organization, E-A-T Person & BreadcrumbList Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.agiletrademarkfiling.com/#website",
+          "url": "https://www.agiletrademarkfiling.com/",
+          "name": "Agile Legal Solutions®",
+          "description": "ISO 9000:2015 certified Law Firm & Trademark Advocates in Delhi.",
+          "publisher": {
+            "@id": "https://www.agiletrademarkfiling.com/#organization"
+          },
+          "inLanguage": "en"
+        },
         {
           "@type": "Organization",
           "@id": "https://www.agiletrademarkfiling.com/#organization",
@@ -303,7 +315,7 @@
             <div class="container">
                 <a class="navbar-brand modern-logo d-flex align-items-center"
                     href="https://www.agiletrademarkfiling.com/">
-                    <img src="images/agile-logo-final.svg" alt="Agile Legal Solutions®" height="50" class="me-3">
+                    <img src="images/agile-logo-final.svg" alt="Agile Legal Solutions®" width="200" height="50" decoding="async" class="me-3">
                     <div class="logo-text">
                         <div class="firm-name-script">Agile Legal Solutions<sup>®</sup></div>
                         <div class="iso-badge">(ISO 9000:2015 certified Law Firm)</div>

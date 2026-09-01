@@ -21,6 +21,7 @@ RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
     Header set X-XSS-Protection "1; mode=block"
     Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+    Header set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';"
 </IfModule>
 
 # --- Gzip Compression for Performance ---
