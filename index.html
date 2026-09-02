@@ -5,6 +5,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+
+    <!-- Critical Inline CSS for Core Web Vitals (FCP & LCP) -->
+    <style>
+        :root{--primary-navy:#1a237e;--primary-white:#ffffff;}
+        body{margin:0;font-family:'Inter',sans-serif;background-color:#0d1117;color:#333;overflow-x:hidden;}
+        .modern-header{position:fixed;top:0;left:0;right:0;z-index:1030;}
+        .navbar{background:rgba(26,35,126,0.95);transition:all .3s ease;}
+        .hero-section{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#1a237e,#303f9f);position:relative;overflow:hidden;}
+    </style>
 
     <!-- Primary SEO Title & Meta -->
     <title>Agile Legal Solutions® | Trademark Advocates in Delhi</title>
@@ -315,14 +326,14 @@
             <div class="container">
                 <a class="navbar-brand modern-logo d-flex align-items-center"
                     href="https://www.agiletrademarkfiling.com/">
-                    <img src="images/agile-logo-final.svg" alt="Agile Legal Solutions®" width="200" height="50" decoding="async" class="me-3">
+                    <img src="images/agile-logo-final.svg" alt="Agile Legal Solutions®" width="200" height="50" decoding="async" loading="eager" fetchpriority="high" class="me-3">
                     <div class="logo-text">
                         <div class="firm-name-script">Agile Legal Solutions<sup>®</sup></div>
                         <div class="iso-badge">(ISO 9000:2015 certified Law Firm)</div>
                     </div>
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -404,9 +415,19 @@
                                 <i class="fas fa-calendar-check me-2"></i>Free Consultation
                             </a>
                             <a href="https://wa.me/919811343159?text=Hello" class="btn btn-whatsapp btn-lg"
-                                target="_blank">
+                                target="_blank" rel="noopener">
                                 <i class="fab fa-whatsapp me-2"></i>WhatsApp Now
                             </a>
+                        </div>
+                        <div class="mt-4 social-share-container" data-aos="fade-up" data-aos-delay="600">
+                            <span class="small text-white-50 me-2">Share & Connect:</span>
+                            <div class="social-share-bar">
+                                <a href="https://api.whatsapp.com/send?text=Check%20out%20Agile%20Legal%20Solutions%20-%20Trademark%20%26%20IP%20Advocates:%20https://www.agiletrademarkfiling.com/" target="_blank" rel="noopener" class="social-share-btn whatsapp" title="Share on WhatsApp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://twitter.com/intent/tweet?url=https://www.agiletrademarkfiling.com/&text=Agile%20Legal%20Solutions%20-%20ISO%209000:2015%20Certified%20Trademark%20Advocates" target="_blank" rel="noopener" class="social-share-btn twitter" title="Share on X / Twitter" aria-label="Share on Twitter"><i class="fab fa-x-twitter"></i></a>
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.agiletrademarkfiling.com/" target="_blank" rel="noopener" class="social-share-btn linkedin" title="Share on LinkedIn" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.agiletrademarkfiling.com/" target="_blank" rel="noopener" class="social-share-btn facebook" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="tel:+919811343159" class="social-share-btn phone" title="Call Us Direct" aria-label="Call +919811343159"><i class="fas fa-phone-alt"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1067,6 +1088,18 @@
                     <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for Legal Excellence</p>
                 </div>
             </div>
+            <div class="row mt-3 pt-3 border-top border-secondary text-center text-md-start small">
+                <div class="col-12">
+                    <span class="text-white-50 me-2 fw-semibold">Quick Navigation:</span>
+                    <a href="#home" class="text-white-50 text-decoration-none me-3">Home</a>
+                    <a href="#about" class="text-white-50 text-decoration-none me-3">About Us</a>
+                    <a href="#practice-areas" class="text-white-50 text-decoration-none me-3">Trademark & IP Practice Areas</a>
+                    <a href="#testimonials" class="text-white-50 text-decoration-none me-3">Client Reviews</a>
+                    <a href="#faq" class="text-white-50 text-decoration-none me-3">Trademark FAQ</a>
+                    <a href="#contact" class="text-white-50 text-decoration-none me-3">Contact Advocates</a>
+                    <a href="sitemap.xml" class="text-white-50 text-decoration-none me-3" target="_blank">XML Sitemap</a>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -1101,134 +1134,23 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- GDPR Cookie Consent Banner -->
+    <div id="cookieConsentBanner" class="cookie-consent-banner">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <div>
+                <p class="mb-1"><i class="fas fa-cookie-bite text-warning me-2"></i><strong>We value your privacy:</strong> We use essential cookies to analyze traffic, enhance navigation, and ensure Bar Council compliance. Read our <a href="privacy-policy.html">Privacy Policy</a> and <a href="cookie-policy.html">Cookie Policy</a>.</p>
+            </div>
+            <div class="d-flex gap-2 flex-shrink-0">
+                <button id="acceptCookiesBtn" class="btn btn-warning btn-sm fw-bold px-3">Accept All</button>
+                <button id="declineCookiesBtn" class="btn btn-outline-light btn-sm px-3">Decline</button>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        // Initialize AOS safely
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 800,
-                    easing: 'ease-in-out',
-                    once: true
-                });
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(26, 35, 126, 0.98)';
-                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.background = 'rgba(26, 35, 126, 0.95)';
-                navbar.style.boxShadow = 'none';
-            }
-        });
-
-        // Show disclaimer modal on page load
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                const disclaimerModal = new bootstrap.Modal(document.getElementById('disclaimerModal'));
-                disclaimerModal.show();
-            }, 1000);
-        });
-
-        // Real Web3Forms Contact Form Integration Handler
-        const form = document.getElementById('contactForm');
-        const result = document.getElementById('formResult');
-        const submitBtn = document.getElementById('submitBtn');
-
-        if (form) {
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-                result.style.display = 'block';
-                result.className = 'alert alert-info py-2 px-3 small';
-                result.innerHTML = 'Submitting your message to aruntheadvisor@hotmail.com...';
-
-                const formData = new FormData(form);
-                const object = Object.fromEntries(formData);
-                const json = JSON.stringify(object);
-
-                fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: json
-                })
-                    .then(async (response) => {
-                        let jsonRes = await response.json();
-                        if (response.status == 200) {
-                            result.className = 'alert alert-success py-3 px-4';
-                            result.innerHTML = '<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent successfully to aruntheadvisor@hotmail.com. We will get back to you shortly.';
-                            form.reset();
-                        } else {
-                            result.className = 'alert alert-info py-3 px-4';
-                            result.innerHTML = '<i class="fas fa-envelope-open-text me-2"></i>Thank you! Your message has been submitted to aruntheadvisor@hotmail.com.';
-                            form.reset();
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        result.className = 'alert alert-success py-3 px-4';
-                        result.innerHTML = '<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been dispatched to aruntheadvisor@hotmail.com.';
-                        form.reset();
-                    })
-                    .then(function () {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
-                        setTimeout(() => {
-                            result.style.display = 'none';
-                        }, 10000);
-                    });
-            });
-        }
-
-        // Update active navigation based on scroll position
-        window.addEventListener('scroll', function () {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop <= 100 && sectionTop > -section.clientHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-
+    <!-- JavaScript Bundle (Externalized & Deferred for Web Performance) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 
 </html>

@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 
     <!-- Primary SEO Title & Meta -->
     <title>Cookie Policy | Agile Legal Solutions®</title>
@@ -101,7 +103,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand modern-logo d-flex align-items-center" href="https://www.agiletrademarkfiling.com/">
-                    <img src="images/agile-logo-final.svg" alt="Agile Legal Solutions®" width="200" height="45" decoding="async" class="me-3">
+                    <img src="images/agile-logo-final.svg" alt="Agile Legal Solutions®" width="200" height="45" decoding="async" loading="eager" fetchpriority="high" class="me-3">
                     <div class="logo-text">
                         <div class="firm-name-script">Agile Legal Solutions<sup>®</sup></div>
                         <div class="iso-badge">(ISO 9000:2015 certified Law Firm)</div>
@@ -147,7 +149,17 @@
     <!-- Footer -->
     <footer class="footer-section py-4 bg-dark text-white">
         <div class="container text-center">
-            <p class="mb-0">&copy; 2026 Agile Legal Solutions<sup>®</sup>. All Rights Reserved. | <a href="index.html" class="text-white text-decoration-underline">Home</a> | <a href="privacy-policy.html" class="text-white text-decoration-underline">Privacy Policy</a> | <a href="terms-of-service.html" class="text-white text-decoration-underline">Terms of Service</a> | <a href="cookie-policy.html" class="text-white text-decoration-underline">Cookie Policy</a></p>
+            <p class="mb-2">&copy; 2026 Agile Legal Solutions<sup>®</sup>. All Rights Reserved.</p>
+            <div class="small">
+                <a href="index.html" class="text-white-50 text-decoration-underline me-3">Home</a>
+                <a href="index.html#about" class="text-white-50 text-decoration-underline me-3">About Us</a>
+                <a href="index.html#practice-areas" class="text-white-50 text-decoration-underline me-3">Practice Areas</a>
+                <a href="index.html#contact" class="text-white-50 text-decoration-underline me-3">Contact</a>
+                <a href="privacy-policy.html" class="text-white-50 text-decoration-underline me-3">Privacy Policy</a>
+                <a href="terms-of-service.html" class="text-white-50 text-decoration-underline me-3">Terms of Service</a>
+                <a href="cookie-policy.html" class="text-white-50 text-decoration-underline me-3">Cookie Policy</a>
+                <a href="sitemap.xml" class="text-white-50 text-decoration-underline" target="_blank">XML Sitemap</a>
+            </div>
         </div>
     </footer>
 </body>

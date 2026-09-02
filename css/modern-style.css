@@ -1573,3 +1573,130 @@ html {
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+
+/* ==========================================================================
+   Responsive Mobile Navigation & Touch Optimizations
+   ========================================================================== */
+@media screen and (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(26, 35, 126, 0.98);
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin-top: 0.75rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem !important;
+        font-size: 1.05rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-nav .nav-item:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    .btn-consultation-nav {
+        margin-top: 1rem;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    .firm-name-script {
+        font-size: 1.1rem !important;
+    }
+    .iso-badge {
+        font-size: 0.7rem !important;
+    }
+    .modern-logo img {
+        width: 150px !important;
+        height: auto !important;
+    }
+    .social-share-bar a {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================================================
+   Social Sharing & Direct Reach Bar
+   ========================================================================== */
+.social-share-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.social-share-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.social-share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: #ffffff !important;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.social-share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    color: #ffffff !important;
+}
+
+.social-share-btn.whatsapp { background: #25D366; }
+.social-share-btn.twitter { background: #1DA1F2; }
+.social-share-btn.linkedin { background: #0A66C2; }
+.social-share-btn.facebook { background: #1877F2; }
+.social-share-btn.phone { background: #FF9800; }
+
+/* ==========================================================================
+   GDPR Cookie Consent Banner
+   ========================================================================== */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: #1a237e;
+    color: #ffffff;
+    padding: 1.25rem 1.5rem;
+    z-index: 9999;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
+    transition: bottom 0.5s ease-in-out;
+    border-top: 3px solid #ffc107;
+}
+
+.cookie-consent-banner.show {
+    bottom: 0;
+}
+
+.cookie-consent-banner p {
+    margin: 0;
+    font-size: 0.925rem;
+    line-height: 1.5;
+}
+
+.cookie-consent-banner a {
+    color: #ffc107;
+    text-decoration: underline;
+}
+
+.cookie-consent-banner a:hover {
+    color: #ffffff;
+}
+
