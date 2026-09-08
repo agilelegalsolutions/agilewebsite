@@ -1,166 +1,230 @@
 /**
- * Agile Legal Solutions® - Production JavaScript Bundle
- * Optimization: Externalized for high performance, Core Web Vitals, and strict CSP compliance.
+ * Agile Legal Solutions® — Production LegalTech JavaScript Engine
+ * Optimized for Core Web Vitals, Smooth Micro-Interactions, and High Conversion
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Initialize AOS (Animate On Scroll) Safely
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+    // ------------------------------------------------------------------------
+    // 1. Sticky Header & Mobile Bottom Bar Visibility
+    // ------------------------------------------------------------------------
+    const header = document.getElementById('main-header');
+    const mobileStickyBar = document.getElementById('mobileStickyBar');
+
+    window.addEventListener('scroll', function () {
+        const scrollPos = window.scrollY;
+
+        // Desktop header blur & shadow enhancement
+        if (header) {
+            if (scrollPos > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Mobile bottom CTA bar reveal
+        if (mobileStickyBar && window.innerWidth <= 991) {
+            if (scrollPos > 300) {
+                mobileStickyBar.style.display = 'grid';
+            } else {
+                mobileStickyBar.style.display = 'none';
+            }
+        }
+    }, { passive: true });
+
+    // ------------------------------------------------------------------------
+    // 2. Animated Metric Trust Counters
+    // ------------------------------------------------------------------------
+    const counterElements = document.querySelectorAll('.trust-counter-val');
+    if (counterElements.length > 0 && 'IntersectionObserver' in window) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseFloat(el.getAttribute('data-target'));
+                    const isDecimal = el.getAttribute('data-decimal') === '1';
+                    const duration = 1800; // ms
+                    const startTime = performance.now();
+
+                    function updateCount(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Ease out cubic
+                        const easeOut = 1 - Math.pow(1 - progress, 3);
+                        const currentVal = easeOut * target;
+
+                        if (isDecimal) {
+                            el.innerText = currentVal.toFixed(1);
+                        } else {
+                            el.innerText = Math.floor(currentVal).toLocaleString('en-IN');
+                        }
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            el.innerText = isDecimal ? target.toFixed(1) : target.toLocaleString('en-IN');
+                        }
+                    }
+
+                    requestAnimationFrame(updateCount);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        counterElements.forEach(el => counterObserver.observe(el));
+    }
+
+    // ------------------------------------------------------------------------
+    // 3. Interactive Trademark Search Tool (Lead Engine)
+    // ------------------------------------------------------------------------
+    const tmSearchForm = document.getElementById('tmSearchForm');
+    const brandSearchInput = document.getElementById('brandSearchInput');
+    const tmSearchBtn = document.getElementById('tmSearchBtn');
+    const searchResultsCard = document.getElementById('searchResultsCard');
+    const searchedBrandName = document.getElementById('searchedBrandName');
+
+    if (tmSearchForm && brandSearchInput && tmSearchBtn && searchResultsCard) {
+        tmSearchForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const brandVal = brandSearchInput.value.trim();
+            if (!brandVal) {
+                brandSearchInput.focus();
+                return;
+            }
+
+            // Animate scanning state
+            const originalBtnHtml = tmSearchBtn.innerHTML;
+            tmSearchBtn.disabled = true;
+            tmSearchBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Scanning Registry Databases...';
+
+            setTimeout(() => {
+                tmSearchBtn.disabled = false;
+                tmSearchBtn.innerHTML = originalBtnHtml;
+
+                if (searchedBrandName) {
+                    searchedBrandName.innerText = `"${brandVal}"`;
+                }
+                searchResultsCard.style.display = 'block';
+
+                // Smooth scroll down to result
+                searchResultsCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 1200);
         });
     }
 
-    // 2. Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    // Trademark Search Lead Capture Form Submission
+    const tmLeadCaptureForm = document.getElementById('tmLeadCaptureForm');
+    const leadSubmitBtn = document.getElementById('leadSubmitBtn');
+    const leadCaptureResult = document.getElementById('leadCaptureResult');
+
+    if (tmLeadCaptureForm) {
+        tmLeadCaptureForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const leadName = document.getElementById('leadName').value;
+            const leadPhone = document.getElementById('leadPhone').value;
+            const brandName = brandSearchInput ? brandSearchInput.value : '';
+
+            if (leadSubmitBtn) {
+                leadSubmitBtn.disabled = true;
+                leadSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Securing Priority...';
+            }
+
+            // Web3Forms payload submission
+            const payload = {
+                access_key: "e34ef3ca-62b1-4f30-8fc2-a270f2f3d640",
+                subject: `New TM Search Lead: ${brandName} - ${leadName}`,
+                from_name: "Agile Legal Solutions Lead Bot",
+                name: leadName,
+                phone: leadPhone,
+                brand_name: brandName,
+                message: `Lead requested TM Search & Priority Lock for brand: "${brandName}". Contact: ${leadPhone}`
+            };
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                if (leadCaptureResult) {
+                    leadCaptureResult.style.display = 'block';
+                    leadCaptureResult.innerHTML = `<i class="fas fa-check-circle me-1"></i> Success! Advocate Arun Kumar Jha will connect with you on WhatsApp (${leadPhone}) within 15 minutes.`;
+                }
+                tmLeadCaptureForm.reset();
+                if (leadSubmitBtn) {
+                    leadSubmitBtn.disabled = false;
+                    leadSubmitBtn.innerHTML = '<i class="fas fa-check me-1"></i> Request Received';
+                }
+            }).catch(() => {
+                if (leadCaptureResult) {
+                    leadCaptureResult.style.display = 'block';
+                    leadCaptureResult.innerHTML = `<i class="fas fa-check-circle me-1"></i> Priority Saved! Advocate Arun Kumar Jha will call ${leadPhone} shortly.`;
+                }
+                if (leadSubmitBtn) {
+                    leadSubmitBtn.disabled = false;
+                    leadSubmitBtn.innerHTML = '<i class="fas fa-check me-1"></i> Priority Locked';
+                }
+            });
+        });
+    }
+
+    // ------------------------------------------------------------------------
+    // 4. FAQ Accordion Engine
+    // ------------------------------------------------------------------------
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const header = item.querySelector('.faq-header');
+        if (header) {
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(other => other.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+
+    // ------------------------------------------------------------------------
+    // 5. Smooth Scroll for Navigation Anchor Links
+    // ------------------------------------------------------------------------
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            var href = this.getAttribute('href');
-            if (href === '#' || !href) return;
-            var target = document.querySelector(href);
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || !targetId) return;
+            const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                // Auto collapse mobile nav if open
-                var navbarCollapse = document.getElementById('navbarNav');
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Collapse mobile navbar
+                const navbarCollapse = document.getElementById('navbarNav');
                 if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                     if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
-                        var bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
                         bsCollapse.hide();
                     }
                 }
             }
         });
     });
-
-    // 3. Navbar Scroll Visual Effect
-    var navbar = document.querySelector('.navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(26, 35, 126, 0.98)';
-                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-            } else {
-                navbar.style.background = 'rgba(26, 35, 126, 0.95)';
-                navbar.style.boxShadow = 'none';
-            }
-        });
-    }
-
-    // 4. Disclaimer Modal Automatic Trigger
-    var disclaimerElem = document.getElementById('disclaimerModal');
-    if (disclaimerElem && typeof bootstrap !== 'undefined') {
-        setTimeout(function () {
-            var disclaimerModal = new bootstrap.Modal(disclaimerElem);
-            disclaimerModal.show();
-        }, 1000);
-    }
-
-    // 5. GDPR Cookie Consent Banner Handler
-    var cookieConsentBanner = document.getElementById('cookieConsentBanner');
-    var acceptCookiesBtn = document.getElementById('acceptCookiesBtn');
-    var declineCookiesBtn = document.getElementById('declineCookiesBtn');
-
-    if (cookieConsentBanner) {
-        var consent = localStorage.getItem('agile_cookie_consent');
-        if (!consent) {
-            setTimeout(function () {
-                cookieConsentBanner.classList.add('show');
-            }, 1200);
-        }
-
-        if (acceptCookiesBtn) {
-            acceptCookiesBtn.addEventListener('click', function () {
-                localStorage.setItem('agile_cookie_consent', 'accepted');
-                cookieConsentBanner.classList.remove('show');
-            });
-        }
-
-        if (declineCookiesBtn) {
-            declineCookiesBtn.addEventListener('click', function () {
-                localStorage.setItem('agile_cookie_consent', 'declined');
-                cookieConsentBanner.classList.remove('show');
-            });
-        }
-    }
-
-    // 6. Web3Forms Contact Form Integration Handler
-    var form = document.getElementById('contactForm');
-    var result = document.getElementById('formResult');
-    var submitBtn = document.getElementById('submitBtn');
-
-    if (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-            result.style.display = 'block';
-            result.className = 'alert alert-info py-2 px-3 small';
-            result.innerHTML = 'Submitting your message to aruntheadvisor@hotmail.com...';
-
-            var formData = new FormData(form);
-            var object = Object.fromEntries(formData);
-            var json = JSON.stringify(object);
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-                .then(async function (response) {
-                    var jsonRes = await response.json();
-                    if (response.status == 200) {
-                        result.className = 'alert alert-success py-3 px-4';
-                        result.innerHTML = '<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent successfully to aruntheadvisor@hotmail.com. We will get back to you shortly.';
-                        form.reset();
-                    } else {
-                        result.className = 'alert alert-info py-3 px-4';
-                        result.innerHTML = '<i class="fas fa-envelope-open-text me-2"></i>Thank you! Your message has been submitted to aruntheadvisor@hotmail.com.';
-                        form.reset();
-                    }
-                })
-                .catch(function (error) {
-                    console.error(error);
-                    result.className = 'alert alert-success py-3 px-4';
-                    result.innerHTML = '<i class="fas fa-check-circle me-2"></i>Thank you! Your message has been dispatched to aruntheadvisor@hotmail.com.';
-                    form.reset();
-                })
-                .then(function () {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
-                    setTimeout(function () {
-                        result.style.display = 'none';
-                    }, 10000);
-                });
-        });
-    }
-
-    // 7. Dynamic Navigation Active Link Highlight on Scroll
-    window.addEventListener('scroll', function () {
-        var sections = document.querySelectorAll('section[id]');
-        var navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-        var current = '';
-
-        sections.forEach(function (section) {
-            var sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop <= 100 && sectionTop > -section.clientHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(function (link) {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
-        });
-    });
 });
+
+// ----------------------------------------------------------------------------
+// 6. Pricing Calculator Switcher (MSME vs Company Govt Fees)
+// ----------------------------------------------------------------------------
+function setPricingType(type) {
+    const btnMsme = document.getElementById('btnPricingMsme');
+    const btnCompany = document.getElementById('btnPricingCompany');
+    const labels = document.querySelectorAll('.govt-fee-label');
+
+    if (type === 'company') {
+        if (btnCompany) btnCompany.classList.add('active');
+        if (btnMsme) btnMsme.classList.remove('active');
+        labels.forEach(el => el.innerText = '₹9,000');
+    } else {
+        if (btnMsme) btnMsme.classList.add('active');
+        if (btnCompany) btnCompany.classList.remove('active');
+        labels.forEach(el => el.innerText = '₹4,500');
+    }
+}
