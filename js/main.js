@@ -145,42 +145,33 @@ document.addEventListener('DOMContentLoaded', function () {
             tmClearanceSubmitBtn.disabled = true;
             tmClearanceSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Initializing Official Clearance...';
 
-            // Prepare Web3Forms payload
-            const payload = {
-                access_key: "869b0482-543a-4a15-bd98-b21eef6676ee",
-                to_email: "arunkumar.jha@hastradar.com",
-                subject: `🔥 Hot TM Clearance Lead: ${brandVal} (${classVal}) - ${nameVal}`,
-                from_name: "Agile Legal Solutions TM Clearance Bot",
-                name: nameVal,
-                phone: `+91 ${cleanPhone}`,
-                brand_name: brandVal,
-                trademark_class: classVal,
-                reference_id: refId,
-                submission_time: formattedTime,
-                ip_india_quick_search: "https://ipindiaservices.gov.in/tmrpublicsearch/",
-                message: `Official Trademark Clearance Audit Request:\n` +
-                         `• Brand / Trade Name: "${brandVal}"\n` +
-                         `• Nice Classification: ${classVal}\n` +
-                         `• Legal Reference Code: ${refId}\n` +
-                         `• Applicant Name: ${nameVal}\n` +
-                         `• WhatsApp / Phone: +91 ${cleanPhone}\n` +
-                         `• Direct IP India Public Search: https://ipindiaservices.gov.in/tmrpublicsearch/`
-            };
+            // Prepare Web3Forms FormData payload directly from the form
+            const formData = new FormData(tmClearanceForm);
+            formData.set("phone", `+91 ${cleanPhone}`);
+            formData.append("reference_id", refId);
+            formData.append("submission_time", formattedTime);
+            formData.append("ip_india_quick_search", "https://ipindiaservices.gov.in/tmrpublicsearch/");
+            formData.append("message", `Official Trademark Clearance Audit Request:\n` +
+                                       `• Brand / Trade Name: "${brandVal}"\n` +
+                                       `• Nice Classification: ${classVal}\n` +
+                                       `• Legal Reference Code: ${refId}\n` +
+                                       `• Applicant Name: ${nameVal}\n` +
+                                       `• WhatsApp / Phone: +91 ${cleanPhone}\n` +
+                                       `• Direct IP India Public Search: https://ipindiaservices.gov.in/tmrpublicsearch/`);
 
-            // Dispatch lead payload
+            // Dispatch lead payload using FormData
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(payload)
+                body: formData
             }).then(response => response.json())
             .then(data => {
                 if (data.success) {
                     console.log('✅ Web3Forms: Email dispatched successfully to your registered inbox!', data);
                 } else {
-                    console.warn('⚠️ Web3Forms response:', data);
+                    console.warn('⚠️ Web3Forms response error:', data);
                 }
             }).catch(err => {
-                console.warn('⚠️ Web3Forms network note (likely CORS on file:// protocol):', err);
+                console.warn('⚠️ Web3Forms network error:', err);
             }).finally(() => {
                 tmClearanceSubmitBtn.disabled = false;
                 tmClearanceSubmitBtn.innerHTML = originalBtnHtml;

@@ -383,9 +383,6 @@
     </div>
 
     <!-- =========================================================================
-         3. TRADEMARK SEARCH TOOL (LEAD CAPTURE CORE)
-         ========================================================================= -->
-    <!-- =========================================================================
          3. TRADEMARK CLEARANCE & CONFLICT AUDIT ENGINE (LEAD CAPTURE CORE)
          ========================================================================= -->
     <section class="search-tool-section" id="search-tool">
@@ -402,7 +399,12 @@
                 </div>
 
                 <!-- Unified Smart Clearance Diagnostic Form -->
-                <form id="tmClearanceForm" class="clearance-form-container" novalidate>
+                <form id="tmClearanceForm" action="https://api.web3forms.com/submit" method="POST" class="clearance-form-container" novalidate>
+                    <input type="hidden" name="access_key" value="869b0482-543a-4a15-bd98-b21eef6676ee">
+                    <input type="hidden" name="subject" value="🔥 Hot TM Clearance Lead: New Audit Request">
+                    <input type="hidden" name="from_name" value="Agile Legal Solutions TM Clearance Bot">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+
                     <div class="clearance-form-grid">
                         <div class="form-group-wrap">
                             <label for="brandSearchInput" class="form-label-custom">
@@ -410,7 +412,7 @@
                             </label>
                             <div class="search-input-wrap">
                                 <i class="fas fa-trademark"></i>
-                                <input type="text" id="brandSearchInput" class="search-input-field" placeholder="e.g. Acme, BoltFit, Zomato..." required autocomplete="off">
+                                <input type="text" id="brandSearchInput" name="brand_name" class="search-input-field" placeholder="e.g. Acme, BoltFit, Zomato..." required autocomplete="off">
                             </div>
                         </div>
 
@@ -418,7 +420,7 @@
                             <label for="brandClassSelect" class="form-label-custom">
                                 <i class="fas fa-layer-group text-primary me-1"></i> Industry / Nice Classification <span class="text-danger">*</span>
                             </label>
-                            <select id="brandClassSelect" class="search-select-field" required>
+                            <select id="brandClassSelect" name="trademark_class" class="search-select-field" required>
                                 <option value="" disabled selected>Select Your Industry / Class</option>
                                 <option value="Class 35: E-Commerce, Retail & Trading">Class 35: E-Commerce, Retail & Trading</option>
                                 <option value="Class 42: SaaS, Software, IT & Tech Services">Class 42: SaaS, Software, IT & Tech Services</option>
@@ -442,7 +444,7 @@
                             </label>
                             <div class="search-input-wrap">
                                 <i class="fas fa-user"></i>
-                                <input type="text" id="leadNameInput" class="search-input-field" placeholder="Your Full Name" required autocomplete="name">
+                                <input type="text" id="leadNameInput" name="name" class="search-input-field" placeholder="Your Full Name" required autocomplete="name">
                             </div>
                         </div>
 
@@ -452,7 +454,7 @@
                             </label>
                             <div class="search-input-wrap phone-input-wrap">
                                 <span class="country-prefix">+91</span>
-                                <input type="tel" id="leadPhoneInput" class="search-input-field phone-field" placeholder="10-digit mobile number" maxlength="10" required autocomplete="tel">
+                                <input type="tel" id="leadPhoneInput" name="phone" class="search-input-field phone-field" placeholder="10-digit mobile number" maxlength="10" required autocomplete="tel">
                             </div>
                         </div>
 

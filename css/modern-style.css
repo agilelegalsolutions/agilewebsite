@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .display-hero {
-  font-size: clamp(2.25rem, 4.2vw + 0.4rem, 3.5rem);
+  font-size: clamp(1.75rem, 4vw + 0.2rem, 3.4rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-  font-size: clamp(1.875rem, 2.5vw + 0.5rem, 2.5rem);
+  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.35rem);
   font-weight: 800;
   margin-bottom: 0.75rem;
   letter-spacing: -0.025em;
@@ -149,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-subtitle {
-  font-size: clamp(1rem, 1.2vw + 0.2rem, 1.125rem);
+  font-size: clamp(0.95rem, 1.2vw + 0.1rem, 1.125rem);
   color: var(--text-muted);
   max-width: 680px;
   margin: 0 auto;
@@ -176,8 +176,8 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1320px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media (min-width: 768px) {
@@ -188,14 +188,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-padding {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 @media (min-width: 992px) {
   .section-padding {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
 }
 
@@ -447,9 +447,16 @@ h1, h2, h3, h4, h5, h6 {
 .hero-section {
   position: relative;
   background-color: var(--primary-navy);
-  padding-top: 130px;
-  padding-bottom: 90px;
+  padding-top: 95px;
+  padding-bottom: 50px;
   overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .hero-section {
+    padding-top: 130px;
+    padding-bottom: 90px;
+  }
 }
 
 .hero-radial-glow {
@@ -538,10 +545,18 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(30, 41, 59, 0.85);
   border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: var(--radius-xl);
-  padding: 26px;
+  padding: 20px 16px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(37, 99, 235, 0.15);
+  margin-top: 28px;
+}
+
+@media (min-width: 992px) {
+  .hero-mockup-card {
+    padding: 26px;
+    margin-top: 0;
+  }
 }
 
 .mockup-header {
@@ -608,7 +623,15 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #0B1120;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 22px 0;
+  padding: 24px 0;
+  position: relative;
+  z-index: 5;
+}
+
+@media (min-width: 992px) {
+  .trust-strip-section {
+    padding: 28px 0 75px;
+  }
 }
 
 .trust-badges-wrap {
@@ -616,22 +639,37 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 16px 28px;
+  gap: 10px 12px;
+}
+
+@media (min-width: 768px) {
+  .trust-badges-wrap {
+    gap: 14px 22px;
+  }
 }
 
 .trust-badge-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   color: #94A3B8;
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
   border-radius: var(--radius-pill);
   transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .trust-badge-item {
+    font-size: 0.85rem;
+    padding: 7px 16px;
+    gap: 8px;
+  }
 }
 
 .trust-badge-item:hover {
@@ -642,7 +680,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .trust-badge-item i {
   color: #38BDF8;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -650,9 +688,18 @@ h1, h2, h3, h4, h5, h6 {
    -------------------------------------------------------------------------- */
 .search-tool-section {
   position: relative;
-  margin-top: -45px;
+  margin-top: 0;
   z-index: 10;
-  padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 992px) {
+  .search-tool-section {
+    margin-top: -55px;
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
 }
 
 .search-tool-card {
@@ -660,7 +707,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border-subtle);
   border-top: 4px solid var(--royal-blue);
   border-radius: var(--radius-xl);
-  padding: 32px 24px;
+  padding: 24px 16px;
   box-shadow: var(--shadow-xl);
 }
 
@@ -671,7 +718,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-tool-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 2vw + 0.4rem, 1.5rem);
   font-weight: 800;
   margin-bottom: 8px;
 }
@@ -880,6 +927,21 @@ h1, h2, h3, h4, h5, h6 {
 .audit-delivery-banner {
   background: #F0FDF4;
   border: 1.5px solid #86EFAC !important;
+}
+
+@media (max-width: 767px) {
+  .audit-delivery-banner {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+  .audit-delivery-banner .d-flex.align-items-center.gap-2 {
+    flex-direction: column;
+    width: 100%;
+  }
+  .audit-delivery-banner .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .whatsapp-badge-icon {
@@ -1134,8 +1196,14 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--primary-navy-light);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-xl);
-  padding: 36px;
+  padding: 26px 18px;
   box-shadow: var(--shadow-xl);
+}
+
+@media (min-width: 768px) {
+  .attorney-card {
+    padding: 36px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1374,8 +1442,13 @@ h1, h2, h3, h4, h5, h6 {
   background: #FFFFFF;
   border-color: var(--royal-blue);
   box-shadow: var(--shadow-xl);
-  transform: scale(1.03);
   z-index: 2;
+}
+
+@media (min-width: 992px) {
+  .pricing-card.featured {
+    transform: scale(1.03);
+  }
 }
 
 .popular-badge {
@@ -1494,12 +1567,19 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   background-color: var(--primary-navy);
   border-radius: var(--radius-xl);
-  padding: 60px 28px;
+  padding: 40px 20px;
   text-align: center;
   color: #FFFFFF;
   overflow: hidden;
   box-shadow: var(--shadow-xl);
-  margin: 30px auto 70px;
+  margin: 20px auto 50px;
+}
+
+@media (min-width: 768px) {
+  .final-cta-section {
+    padding: 60px 28px;
+    margin: 30px auto 70px;
+  }
 }
 
 .final-cta-glow {
