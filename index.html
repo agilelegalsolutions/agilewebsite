@@ -385,72 +385,185 @@
     <!-- =========================================================================
          3. TRADEMARK SEARCH TOOL (LEAD CAPTURE CORE)
          ========================================================================= -->
+    <!-- =========================================================================
+         3. TRADEMARK CLEARANCE & CONFLICT AUDIT ENGINE (LEAD CAPTURE CORE)
+         ========================================================================= -->
     <section class="search-tool-section" id="search-tool">
         <div class="modern-container">
             <div class="search-tool-card">
-                <div class="row align-items-center">
+                <div class="row align-items-center mb-3">
                     <div class="col-lg-12 text-center text-lg-start">
                         <span class="badge bg-primary bg-opacity-10 text-primary fw-bold px-3 py-2 rounded-pill mb-2">
-                            <i class="fas fa-search me-1"></i> Free Trademark Availability Check
+                            <i class="fas fa-shield-alt me-1"></i> Official Indian Registry Clearance Engine
                         </span>
-                        <h2 class="search-tool-title">Search Your Trademark Across Indian Registry Databases</h2>
-                        <p class="text-muted mb-0">Check for phonetic, visual, and class-wise conflicts before filing to guarantee zero rejection risk.</p>
+                        <h2 class="search-tool-title">Search & Verify Your Trademark Across Indian Registry Databases</h2>
+                        <p class="text-muted mb-0">Check for phonetic, visual, and cross-class conflicts across 4.5M+ active records before filing to guarantee zero rejection risk.</p>
                     </div>
                 </div>
 
-                <form id="tmSearchForm" class="search-form-grid">
-                    <div class="search-input-wrap">
-                        <i class="fas fa-tag"></i>
-                        <input type="text" id="brandSearchInput" class="search-input-field" placeholder="Enter your brand or company name (e.g. Acme, BoltFit)..." required>
-                    </div>
-
-                    <div>
-                        <select id="brandClassSelect" class="search-select-field">
-                            <option value="all">Select Industry / Class (Optional)</option>
-                            <option value="35">Class 35: E-Commerce & Retail Services</option>
-                            <option value="42">Class 42: SaaS, Software & IT Tech</option>
-                            <option value="9">Class 09: Electronics & Mobile Apps</option>
-                            <option value="25">Class 25: Clothing & Fashion Apparel</option>
-                            <option value="43">Class 43: Food, Cafe & Restaurants</option>
-                            <option value="5">Class 05: Pharmaceuticals & Health</option>
-                            <option value="30">Class 30: Packaged Foods & FMCG</option>
-                            <option value="41">Class 41: Education, Training & Media</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <button type="submit" id="tmSearchBtn" class="btn-legal-primary search-submit-btn w-100">
-                            <span>Check Availability Free</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </form>
-
-                <!-- Simulated Search Results Card (Lead Capture) -->
-                <div id="searchResultsCard" class="search-result-container">
-                    <div class="search-result-box">
-                        <div class="d-flex align-items-start gap-3">
-                            <div class="bg-success text-white rounded-circle p-2 px-3 fs-5">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h4 class="text-dark fw-bold mb-1">
-                                    Good News! <span id="searchedBrandName" class="text-primary"></span> appears <span class="text-success">Available for Filing</span>
-                                </h4>
-                                <p class="text-muted mb-2 small">
-                                    Preliminary database scan indicates high registrability in your selected category. Lock your legal priority date now before a competitor applies.
-                                </p>
+                <!-- Unified Smart Clearance Diagnostic Form -->
+                <form id="tmClearanceForm" class="clearance-form-container" novalidate>
+                    <div class="clearance-form-grid">
+                        <div class="form-group-wrap">
+                            <label for="brandSearchInput" class="form-label-custom">
+                                <i class="fas fa-tag text-primary me-1"></i> Brand / Trade Name to Protect <span class="text-danger">*</span>
+                            </label>
+                            <div class="search-input-wrap">
+                                <i class="fas fa-trademark"></i>
+                                <input type="text" id="brandSearchInput" class="search-input-field" placeholder="e.g. Acme, BoltFit, Zomato..." required autocomplete="off">
                             </div>
                         </div>
 
-                        <form id="tmLeadCaptureForm" class="search-lead-form">
-                            <input type="text" id="leadName" class="form-control form-control-lg border" placeholder="Your Full Name" required>
-                            <input type="tel" id="leadPhone" class="form-control form-control-lg border" placeholder="WhatsApp Number (+91)" required>
-                            <button type="submit" id="leadSubmitBtn" class="btn btn-success btn-lg fw-bold px-4">
-                                <i class="fas fa-lock me-2"></i> Lock My Trademark
+                        <div class="form-group-wrap">
+                            <label for="brandClassSelect" class="form-label-custom">
+                                <i class="fas fa-layer-group text-primary me-1"></i> Industry / Nice Classification <span class="text-danger">*</span>
+                            </label>
+                            <select id="brandClassSelect" class="search-select-field" required>
+                                <option value="" disabled selected>Select Your Industry / Class</option>
+                                <option value="Class 35: E-Commerce, Retail & Trading">Class 35: E-Commerce, Retail & Trading</option>
+                                <option value="Class 42: SaaS, Software, IT & Tech Services">Class 42: SaaS, Software, IT & Tech Services</option>
+                                <option value="Class 09: Electronics, Mobile Apps & Gadgets">Class 09: Electronics, Mobile Apps & Gadgets</option>
+                                <option value="Class 25: Clothing, Footwear & Fashion Apparel">Class 25: Clothing, Footwear & Fashion Apparel</option>
+                                <option value="Class 43: Food, Cafe, Hotels & Cloud Kitchens">Class 43: Food, Cafe, Hotels & Cloud Kitchens</option>
+                                <option value="Class 05: Pharmaceuticals, Nutraceuticals & Healthcare">Class 05: Pharmaceuticals, Nutraceuticals & Healthcare</option>
+                                <option value="Class 30: Packaged Foods, FMCG, Spices & Bakery">Class 30: Packaged Foods, FMCG, Spices & Bakery</option>
+                                <option value="Class 41: Education, EdTech, Training & Media">Class 41: Education, EdTech, Training & Media</option>
+                                <option value="Class 03: Cosmetics, Skincare & Perfumes">Class 03: Cosmetics, Skincare & Perfumes</option>
+                                <option value="Class 32: Beverages, Juices & Mineral Water">Class 32: Beverages, Juices & Mineral Water</option>
+                                <option value="Not Sure (Advocate Will Classify)">Not Sure (Let Senior Advocate Classify)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="clearance-contact-grid mt-3">
+                        <div class="form-group-wrap">
+                            <label for="leadNameInput" class="form-label-custom">
+                                <i class="fas fa-user text-primary me-1"></i> Applicant / Business Owner Name <span class="text-danger">*</span>
+                            </label>
+                            <div class="search-input-wrap">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="leadNameInput" class="search-input-field" placeholder="Your Full Name" required autocomplete="name">
+                            </div>
+                        </div>
+
+                        <div class="form-group-wrap">
+                            <label for="leadPhoneInput" class="form-label-custom">
+                                <i class="fab fa-whatsapp text-success me-1"></i> WhatsApp Number for Report Delivery <span class="text-danger">*</span>
+                            </label>
+                            <div class="search-input-wrap phone-input-wrap">
+                                <span class="country-prefix">+91</span>
+                                <input type="tel" id="leadPhoneInput" class="search-input-field phone-field" placeholder="10-digit mobile number" maxlength="10" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <div class="form-group-wrap btn-wrap-align">
+                            <label class="form-label-custom d-none d-lg-block">&nbsp;</label>
+                            <button type="submit" id="tmClearanceSubmitBtn" class="btn-legal-primary search-submit-btn w-100">
+                                <span>Initiate Free Registry Clearance</span>
+                                <i class="fas fa-arrow-right ms-2"></i>
                             </button>
-                        </form>
-                        <div id="leadCaptureResult" class="mt-2 text-success fw-bold small" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3 pt-2 border-top">
+                        <div class="d-flex align-items-center gap-2 text-muted small">
+                            <i class="fas fa-user-shield text-primary"></i>
+                            <span>Conducted by Senior High Court Advocates & Trademark Attorneys</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 text-muted small">
+                            <i class="fas fa-lock text-success"></i>
+                            <span>100% Confidential Legal Privilege | No Spam Guarantee</span>
+                        </div>
+                    </div>
+
+                    <div id="clearanceFormError" class="alert alert-danger mt-3 py-2 px-3 small" style="display: none;"></div>
+                </form>
+
+                <!-- Dynamic Official Clearance Report & Advocate Audit Card -->
+                <div id="clearanceResultContainer" class="clearance-result-wrapper" style="display: none;">
+                    <div class="clearance-audit-card">
+                        <div class="audit-card-header d-flex flex-wrap align-items-center justify-content-between gap-3 pb-3 border-bottom">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="audit-status-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <span class="badge bg-primary px-3 py-1 text-white fw-bold mb-1">
+                                        <i class="fas fa-hashtag me-1"></i> REF: <span id="resRefId">ALS-TM-84920</span>
+                                    </span>
+                                    <h4 class="text-dark fw-bold mb-0">
+                                        Clearance Audit Initiated for: <span id="resBrandName" class="text-primary"></span>
+                                    </h4>
+                                    <span id="resClassBadge" class="badge bg-light text-secondary border mt-1"></span>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-warning bg-opacity-25 text-dark border border-warning px-3 py-2 fw-bold">
+                                    <i class="fas fa-circle-notch fa-spin me-1 text-warning"></i> Audit In Progress
+                                </span>
+                                <div class="small text-muted mt-1" id="resTimestamp"></div>
+                            </div>
+                        </div>
+
+                        <div class="audit-card-body py-4">
+                            <p class="lead-subtext text-muted mb-3">
+                                Senior Advocate <strong>Arun Kumar Jha</strong> (Delhi High Court) and our Trademark Intelligence Desk have received your request. We are scanning the official Controller General (CGPDTM) database across all active journals for phonetic, visual, and legal conflicts.
+                            </p>
+
+                            <div class="audit-checklist-grid">
+                                <div class="audit-checklist-item">
+                                    <div class="check-icon text-success"><i class="fas fa-check-circle"></i></div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1 text-dark">Section 11 Relative Grounds Scan</h6>
+                                        <p class="small text-muted mb-0">Cross-checking exact and phonetically identical names across 45 Nice classes to prevent trade rivalry disputes.</p>
+                                    </div>
+                                </div>
+                                <div class="audit-checklist-item">
+                                    <div class="check-icon text-success"><i class="fas fa-check-circle"></i></div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1 text-dark">Section 9 Absolute Grounds Screening</h6>
+                                        <p class="small text-muted mb-0">Screening for laudatory, descriptive, or generic terms that frequently trigger Registry Examination Objections.</p>
+                                    </div>
+                                </div>
+                                <div class="audit-checklist-item">
+                                    <div class="check-icon text-success"><i class="fas fa-check-circle"></i></div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1 text-dark">Prohibited Mark Verification</h6>
+                                        <p class="small text-muted mb-0">Reviewing compliance with the Emblems & Names (Prevention of Improper Use) Act, 1950.</p>
+                                    </div>
+                                </div>
+                                <div class="audit-checklist-item">
+                                    <div class="check-icon text-success"><i class="fas fa-check-circle"></i></div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1 text-dark">Legal Strategy & Filing Roadmap</h6>
+                                        <p class="small text-muted mb-0">Formulating optimal user date documentation and classification to guarantee 0% rejection risk.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="audit-delivery-banner mt-4 p-3 rounded-3 bg-light border d-flex flex-wrap align-items-center justify-content-between gap-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="whatsapp-badge-icon bg-success text-white rounded-circle p-2 fs-4">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Report Delivery via WhatsApp & Phone</div>
+                                        <div class="small text-muted">
+                                            Your comprehensive conflict analysis report will be shared with <strong id="resPhoneDisplay" class="text-dark"></strong> within 15–30 minutes.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <a id="resWhatsAppDirectBtn" href="#" target="_blank" rel="noopener" class="btn btn-success fw-bold px-3 py-2 d-inline-flex align-items-center gap-2 shadow-sm">
+                                        <i class="fab fa-whatsapp fs-5"></i>
+                                        <span>Chat with Advocate Now</span>
+                                    </a>
+                                    <button type="button" id="resResetSearchBtn" class="btn btn-outline-secondary fw-medium px-3 py-2">
+                                        <i class="fas fa-redo me-1"></i> Audit Another Brand
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

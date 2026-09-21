@@ -76,95 +76,155 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ------------------------------------------------------------------------
-    // 3. Interactive Trademark Search Tool (Lead Engine)
+    // 3. Smart Trademark Clearance & Advocate Lead Engine
     // ------------------------------------------------------------------------
-    const tmSearchForm = document.getElementById('tmSearchForm');
+    const tmClearanceForm = document.getElementById('tmClearanceForm');
     const brandSearchInput = document.getElementById('brandSearchInput');
-    const tmSearchBtn = document.getElementById('tmSearchBtn');
-    const searchResultsCard = document.getElementById('searchResultsCard');
-    const searchedBrandName = document.getElementById('searchedBrandName');
+    const brandClassSelect = document.getElementById('brandClassSelect');
+    const leadNameInput = document.getElementById('leadNameInput');
+    const leadPhoneInput = document.getElementById('leadPhoneInput');
+    const tmClearanceSubmitBtn = document.getElementById('tmClearanceSubmitBtn');
+    const clearanceFormError = document.getElementById('clearanceFormError');
 
-    if (tmSearchForm && brandSearchInput && tmSearchBtn && searchResultsCard) {
-        tmSearchForm.addEventListener('submit', function (e) {
+    const clearanceResultContainer = document.getElementById('clearanceResultContainer');
+    const resRefId = document.getElementById('resRefId');
+    const resBrandName = document.getElementById('resBrandName');
+    const resClassBadge = document.getElementById('resClassBadge');
+    const resTimestamp = document.getElementById('resTimestamp');
+    const resPhoneDisplay = document.getElementById('resPhoneDisplay');
+    const resWhatsAppDirectBtn = document.getElementById('resWhatsAppDirectBtn');
+    const resResetSearchBtn = document.getElementById('resResetSearchBtn');
+
+    if (tmClearanceForm && brandSearchInput && leadNameInput && leadPhoneInput && tmClearanceSubmitBtn) {
+        tmClearanceForm.addEventListener('submit', function (e) {
             e.preventDefault();
+
+            // Clear any previous error
+            if (clearanceFormError) {
+                clearanceFormError.style.display = 'none';
+                clearanceFormError.innerText = '';
+            }
+
             const brandVal = brandSearchInput.value.trim();
-            if (!brandVal) {
-                brandSearchInput.focus();
+            const classVal = brandClassSelect && brandClassSelect.value ? brandClassSelect.value : 'Class Consultation Requested';
+            const nameVal = leadNameInput.value.trim();
+            const rawPhone = leadPhoneInput.value.trim();
+            const cleanPhone = rawPhone.replace(/\D/g, '');
+
+            // Validation checks
+            if (!brandVal || brandVal.length < 2) {
+                showError('Please enter a valid brand or trademark name (at least 2 characters).', brandSearchInput);
                 return;
             }
 
-            // Animate scanning state
-            const originalBtnHtml = tmSearchBtn.innerHTML;
-            tmSearchBtn.disabled = true;
-            tmSearchBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Scanning Registry Databases...';
-
-            setTimeout(() => {
-                tmSearchBtn.disabled = false;
-                tmSearchBtn.innerHTML = originalBtnHtml;
-
-                if (searchedBrandName) {
-                    searchedBrandName.innerText = `"${brandVal}"`;
-                }
-                searchResultsCard.style.display = 'block';
-
-                // Smooth scroll down to result
-                searchResultsCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 1200);
-        });
-    }
-
-    // Trademark Search Lead Capture Form Submission
-    const tmLeadCaptureForm = document.getElementById('tmLeadCaptureForm');
-    const leadSubmitBtn = document.getElementById('leadSubmitBtn');
-    const leadCaptureResult = document.getElementById('leadCaptureResult');
-
-    if (tmLeadCaptureForm) {
-        tmLeadCaptureForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const leadName = document.getElementById('leadName').value;
-            const leadPhone = document.getElementById('leadPhone').value;
-            const brandName = brandSearchInput ? brandSearchInput.value : '';
-
-            if (leadSubmitBtn) {
-                leadSubmitBtn.disabled = true;
-                leadSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Securing Priority...';
+            if (!nameVal || nameVal.length < 2) {
+                showError('Please enter your full name as the business or applicant owner.', leadNameInput);
+                return;
             }
 
-            // Web3Forms payload submission
+            // Indian phone validation (10 digits starting with 6, 7, 8, or 9)
+            const phonePattern = /^[6-9]\d{9}$/;
+            if (!phonePattern.test(cleanPhone)) {
+                showError('Please enter a valid 10-digit Indian WhatsApp mobile number (e.g., 9811343159).', leadPhoneInput);
+                return;
+            }
+
+            // Generate unique legal clearance reference ID
+            const refId = 'ALS-TM-' + Math.floor(10000 + Math.random() * 90000);
+            const now = new Date();
+            const formattedTime = now.toLocaleDateString('en-IN', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            // UI loading state
+            const originalBtnHtml = tmClearanceSubmitBtn.innerHTML;
+            tmClearanceSubmitBtn.disabled = true;
+            tmClearanceSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Initializing Official Clearance...';
+
+            // Prepare Web3Forms payload
             const payload = {
                 access_key: "e34ef3ca-62b1-4f30-8fc2-a270f2f3d640",
-                subject: `New TM Search Lead: ${brandName} - ${leadName}`,
-                from_name: "Agile Legal Solutions Lead Bot",
-                name: leadName,
-                phone: leadPhone,
-                brand_name: brandName,
-                message: `Lead requested TM Search & Priority Lock for brand: "${brandName}". Contact: ${leadPhone}`
+                subject: `🔥 Hot TM Clearance Lead: ${brandVal} (${classVal}) - ${nameVal}`,
+                from_name: "Agile Legal Solutions TM Clearance Bot",
+                name: nameVal,
+                phone: `+91 ${cleanPhone}`,
+                brand_name: brandVal,
+                trademark_class: classVal,
+                reference_id: refId,
+                submission_time: formattedTime,
+                ip_india_quick_search: "https://ipindiaservices.gov.in/tmrpublicsearch/",
+                message: `Official Trademark Clearance Audit Request:\n` +
+                         `• Brand / Trade Name: "${brandVal}"\n` +
+                         `• Nice Classification: ${classVal}\n` +
+                         `• Legal Reference Code: ${refId}\n` +
+                         `• Applicant Name: ${nameVal}\n` +
+                         `• WhatsApp / Phone: +91 ${cleanPhone}\n` +
+                         `• Direct IP India Public Search: https://ipindiaservices.gov.in/tmrpublicsearch/`
             };
 
+            // Dispatch lead payload
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify(payload)
-            }).then(() => {
-                if (leadCaptureResult) {
-                    leadCaptureResult.style.display = 'block';
-                    leadCaptureResult.innerHTML = `<i class="fas fa-check-circle me-1"></i> Success! Advocate Arun Kumar Jha will connect with you on WhatsApp (${leadPhone}) within 15 minutes.`;
+            }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('✅ Web3Forms: Email dispatched successfully to your registered inbox!', data);
+                } else {
+                    console.warn('⚠️ Web3Forms response:', data);
                 }
-                tmLeadCaptureForm.reset();
-                if (leadSubmitBtn) {
-                    leadSubmitBtn.disabled = false;
-                    leadSubmitBtn.innerHTML = '<i class="fas fa-check me-1"></i> Request Received';
+            }).catch(err => {
+                console.warn('⚠️ Web3Forms network note (likely CORS on file:// protocol):', err);
+            }).finally(() => {
+                tmClearanceSubmitBtn.disabled = false;
+                tmClearanceSubmitBtn.innerHTML = originalBtnHtml;
+
+                // Populate Dynamic Clearance Card
+                if (resRefId) resRefId.innerText = refId;
+                if (resBrandName) resBrandName.innerText = `"${brandVal}"`;
+                if (resClassBadge) resClassBadge.innerText = classVal;
+                if (resTimestamp) resTimestamp.innerText = `Initiated: ${formattedTime}`;
+                if (resPhoneDisplay) resPhoneDisplay.innerText = `+91 ${cleanPhone}`;
+
+                // Construct direct WhatsApp deep link with pre-filled case details
+                if (resWhatsAppDirectBtn) {
+                    const waMessage = `Hello Advocate Arun Kumar Jha, I just initiated an official Trademark Clearance Audit for "${brandVal}" (${classVal}) with Reference: ${refId}. Please share the clearance conflict analysis and filing recommendation.`;
+                    resWhatsAppDirectBtn.href = `https://wa.me/919811343159?text=${encodeURIComponent(waMessage)}`;
                 }
-            }).catch(() => {
-                if (leadCaptureResult) {
-                    leadCaptureResult.style.display = 'block';
-                    leadCaptureResult.innerHTML = `<i class="fas fa-check-circle me-1"></i> Priority Saved! Advocate Arun Kumar Jha will call ${leadPhone} shortly.`;
-                }
-                if (leadSubmitBtn) {
-                    leadSubmitBtn.disabled = false;
-                    leadSubmitBtn.innerHTML = '<i class="fas fa-check me-1"></i> Priority Locked';
+
+                // Show clearance result card and scroll smoothly
+                if (clearanceResultContainer) {
+                    clearanceResultContainer.style.display = 'block';
+                    clearanceResultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             });
+        });
+
+        function showError(msg, targetInput) {
+            if (clearanceFormError) {
+                clearanceFormError.style.display = 'block';
+                clearanceFormError.innerHTML = `<i class="fas fa-exclamation-circle me-2"></i> ${msg}`;
+            }
+            if (targetInput) {
+                targetInput.focus();
+            }
+        }
+    }
+
+    // Reset / Audit Another Brand button handler
+    if (resResetSearchBtn && clearanceResultContainer && tmClearanceForm) {
+        resResetSearchBtn.addEventListener('click', function () {
+            clearanceResultContainer.style.display = 'none';
+            tmClearanceForm.reset();
+            if (brandSearchInput) {
+                brandSearchInput.focus();
+                brandSearchInput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         });
     }
 

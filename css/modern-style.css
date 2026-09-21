@@ -676,38 +676,74 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 8px;
 }
 
-.search-form-grid {
+.form-label-custom {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.clearance-form-container {
+  margin-top: 16px;
+}
+
+.clearance-form-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 20px;
+  gap: 16px;
 }
 
 @media (min-width: 992px) {
-  .search-form-grid {
-    grid-template-columns: 2fr 1.2fr auto;
-    align-items: center;
+  .clearance-form-grid {
+    grid-template-columns: 1.3fr 1fr;
   }
+}
+
+.clearance-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 992px) {
+  .clearance-contact-grid {
+    grid-template-columns: 1fr 1fr 1.25fr;
+    align-items: flex-end;
+  }
+}
+
+.form-group-wrap {
+  position: relative;
+}
+
+.btn-wrap-align {
+  display: flex;
+  flex-direction: column;
 }
 
 .search-input-wrap {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.search-input-wrap i {
+.search-input-wrap > i {
   position: absolute;
   left: 18px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
-  font-size: 1.05rem;
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .search-input-field {
   width: 100%;
   height: 52px;
-  padding-left: 48px;
-  padding-right: 18px;
+  padding-left: 46px;
+  padding-right: 16px;
   background: var(--bg-page);
   border: 1.5px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -722,6 +758,22 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--royal-blue);
   background: #FFFFFF;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.phone-input-wrap .country-prefix {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.phone-input-wrap .phone-field {
+  padding-left: 54px !important;
 }
 
 .search-select-field {
@@ -747,39 +799,96 @@ h1, h2, h3, h4, h5, h6 {
 
 .search-submit-btn {
   height: 52px;
-  padding: 0 28px;
-  font-size: 0.98rem;
+  padding: 0 24px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.search-result-container {
-  margin-top: 20px;
-  display: none;
-  animation: slideUp 0.3s ease-out forwards;
+/* Dynamic Clearance Result Card */
+.clearance-result-wrapper {
+  margin-top: 24px;
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.search-result-box {
-  background: var(--emerald-light);
-  border: 1.5px solid var(--emerald-border);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-}
-
-.search-lead-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 16px;
+.clearance-audit-card {
+  background: #FFFFFF;
+  border: 2px solid var(--royal-blue);
+  border-radius: var(--radius-xl);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-xl);
 }
 
 @media (min-width: 768px) {
-  .search-lead-form {
-    grid-template-columns: 1fr 1fr auto;
+  .clearance-audit-card {
+    padding: 32px 36px;
   }
+}
+
+.audit-status-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.lead-subtext {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.audit-checklist-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .audit-checklist-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.audit-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-page);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  transition: transform var(--transition-fast);
+}
+
+.audit-checklist-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.audit-checklist-item .check-icon {
+  font-size: 1.2rem;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.audit-delivery-banner {
+  background: #F0FDF4;
+  border: 1.5px solid #86EFAC !important;
+}
+
+.whatsapp-badge-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 /* --------------------------------------------------------------------------
