@@ -388,7 +388,7 @@
     <section class="search-tool-section" id="search-tool">
         <div class="modern-container">
             <div class="search-tool-card">
-                <div class="row align-items-center mb-3">
+                <div class="row align-items-center mb-3" id="searchToolIntroHeader">
                     <div class="col-lg-12 text-center text-lg-start">
                         <span class="badge bg-primary bg-opacity-10 text-primary fw-bold px-3 py-2 rounded-pill mb-2">
                             <i class="fas fa-shield-alt me-1"></i> Official Indian Registry Clearance Engine
@@ -402,7 +402,7 @@
                 <form id="tmClearanceForm" action="https://api.web3forms.com/submit" method="POST" class="clearance-form-container" novalidate>
                     <input type="hidden" name="access_key" value="869b0482-543a-4a15-bd98-b21eef6676ee">
                     <input type="hidden" name="subject" value="🔥 Hot TM Clearance Lead: New Audit Request">
-                    <input type="hidden" name="from_name" value="Agile Legal Solutions TM Clearance Bot">
+                    <input type="hidden" name="from_name" value="Agile Legal Solutions">
                     <input type="checkbox" name="botcheck" style="display: none;">
 
                     <div class="clearance-form-grid">
@@ -484,30 +484,31 @@
                 <!-- Dynamic Official Clearance Report & Advocate Audit Card -->
                 <div id="clearanceResultContainer" class="clearance-result-wrapper" style="display: none;">
                     <div class="clearance-audit-card">
-                        <div class="audit-card-header d-flex flex-wrap align-items-center justify-content-between gap-3 pb-3 border-bottom">
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="audit-status-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <span class="badge bg-primary px-3 py-1 text-white fw-bold mb-1">
-                                        <i class="fas fa-hashtag me-1"></i> REF: <span id="resRefId">ALS-TM-84920</span>
-                                    </span>
-                                    <h4 class="text-dark fw-bold mb-0">
-                                        Clearance Audit Initiated for: <span id="resBrandName" class="text-primary"></span>
-                                    </h4>
-                                    <span id="resClassBadge" class="badge bg-light text-secondary border mt-1"></span>
-                                </div>
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 pb-2 mb-3 border-bottom">
+                            <span class="badge bg-primary px-3 py-1 text-white fw-bold">
+                                <i class="fas fa-hashtag me-1"></i> REF: <span id="resRefId">ALS-TM-84920</span>
+                            </span>
+                            <span class="badge bg-warning bg-opacity-25 text-dark border border-warning px-3 py-1 fw-bold">
+                                <i class="fas fa-circle-notch fa-spin me-1 text-warning"></i> Audit In Progress
+                            </span>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-2 gap-sm-3 pb-3 border-bottom">
+                            <div class="audit-status-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="fas fa-check"></i>
                             </div>
-                            <div class="text-end">
-                                <span class="badge bg-warning bg-opacity-25 text-dark border border-warning px-3 py-2 fw-bold">
-                                    <i class="fas fa-circle-notch fa-spin me-1 text-warning"></i> Audit In Progress
-                                </span>
-                                <div class="small text-muted mt-1" id="resTimestamp"></div>
+                            <div class="flex-grow-1" style="min-width: 0;">
+                                <h4 class="text-dark fw-bold mb-1 fs-5 text-break">
+                                    Clearance Audit Initiated for: <span id="resBrandName" class="text-primary"></span>
+                                </h4>
+                                <div>
+                                    <span id="resClassBadge" class="class-badge-pill"></span>
+                                </div>
+                                <div class="small text-muted mt-2" id="resTimestamp"></div>
                             </div>
                         </div>
 
-                        <div class="audit-card-body py-4">
+                        <div class="audit-card-body pt-3 pb-2">
                             <p class="lead-subtext text-muted mb-3">
                                 Senior Advocate <strong>Arun Kumar Jha</strong> (Delhi High Court) and our Trademark Intelligence Desk have received your request. We are scanning the official Controller General (CGPDTM) database across all active journals for phonetic, visual, and legal conflicts.
                             </p>

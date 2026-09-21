@@ -189,10 +189,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     resWhatsAppDirectBtn.href = `https://wa.me/919811343159?text=${encodeURIComponent(waMessage)}`;
                 }
 
-                // Show clearance result card and scroll smoothly
+                // Show clearance result card and hide the input form and intro header for clean display
+                const searchToolIntroHeader = document.getElementById('searchToolIntroHeader');
+                if (searchToolIntroHeader) {
+                    searchToolIntroHeader.style.display = 'none';
+                }
+                if (tmClearanceForm) {
+                    tmClearanceForm.style.display = 'none';
+                }
                 if (clearanceResultContainer) {
                     clearanceResultContainer.style.display = 'block';
-                    clearanceResultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    clearanceResultContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
@@ -212,6 +219,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (resResetSearchBtn && clearanceResultContainer && tmClearanceForm) {
         resResetSearchBtn.addEventListener('click', function () {
             clearanceResultContainer.style.display = 'none';
+            const searchToolIntroHeader = document.getElementById('searchToolIntroHeader');
+            if (searchToolIntroHeader) {
+                searchToolIntroHeader.style.display = 'block';
+            }
+            tmClearanceForm.style.display = 'block';
             tmClearanceForm.reset();
             if (brandSearchInput) {
                 brandSearchInput.focus();

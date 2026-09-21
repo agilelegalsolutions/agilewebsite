@@ -853,36 +853,56 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
-/* Dynamic Clearance Result Card */
 .clearance-result-wrapper {
-  margin-top: 24px;
+  margin-top: 0;
   animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  width: 100%;
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .clearance-audit-card {
-  background: #FFFFFF;
-  border: 2px solid var(--royal-blue);
-  border-radius: var(--radius-xl);
-  padding: 28px 24px;
-  box-shadow: var(--shadow-xl);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  width: 100%;
 }
 
-@media (min-width: 768px) {
-  .clearance-audit-card {
-    padding: 32px 36px;
-  }
+.class-badge-pill {
+  display: inline-block;
+  background: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
+  max-width: 100%;
 }
 
 .audit-status-icon {
-  width: 44px;
-  height: 44px;
-  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
   flex-shrink: 0;
+  margin-top: 3px;
+}
+
+@media (min-width: 768px) {
+  .audit-status-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
 }
 
 .lead-subtext {
