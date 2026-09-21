@@ -147,7 +147,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Prepare Web3Forms payload
             const payload = {
-                access_key: "e34ef3ca-62b1-4f30-8fc2-a270f2f3d640",
+                access_key: "869b0482-543a-4a15-bd98-b21eef6676ee",
+                to_email: "arunkumar.jha@hastradar.com",
                 subject: `🔥 Hot TM Clearance Lead: ${brandVal} (${classVal}) - ${nameVal}`,
                 from_name: "Agile Legal Solutions TM Clearance Bot",
                 name: nameVal,
