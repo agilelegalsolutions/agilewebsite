@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.agiletrademarkfiling.com/sitemap.xml
+Sitemap: https://agiletrademarkfiling.com/sitemap.xml
