@@ -13,6 +13,16 @@ RewriteCond %{HTTPS} off
 RewriteCond %{SERVER_PORT} 80
 RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
 
+# --- Extensionless URLs (.html rewriting & redirection) ---
+# Internally rewrite clean extensionless URL to .html if the file exists
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# 301 Redirect direct requests ending in .html to clean URL (GET only)
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
 # --- Security Headers ---
 <IfModule mod_headers.c>
     Header set X-Frame-Options "SAMEORIGIN"
