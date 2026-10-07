@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // UI loading state
             const originalBtnHtml = tmClearanceSubmitBtn.innerHTML;
             tmClearanceSubmitBtn.disabled = true;
-            tmClearanceSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Initializing Official Clearance...';
+            tmClearanceSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Submitting Request...';
 
             // Prepare Web3Forms FormData payload directly from the form
             const formData = new FormData(tmClearanceForm);
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append("reference_id", refId);
             formData.append("submission_time", formattedTime);
             formData.append("ip_india_quick_search", "https://ipindiaservices.gov.in/tmrpublicsearch/");
-            formData.append("message", `Official Trademark Clearance Audit Request:\n` +
+            formData.append("message", `Trademark Availability Check Request:\n` +
                                        `• Brand / Trade Name: "${brandVal}"\n` +
                                        `• Nice Classification: ${classVal}\n` +
                                        `• Legal Reference Code: ${refId}\n` +
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }).then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    console.log('✅ Web3Forms: Email dispatched successfully to your registered inbox!', data);
+                    console.log('✅ Web3Forms: Dispatched successfully', data);
                 } else {
                     console.warn('⚠️ Web3Forms response error:', data);
                 }
@@ -176,16 +176,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 tmClearanceSubmitBtn.disabled = false;
                 tmClearanceSubmitBtn.innerHTML = originalBtnHtml;
 
-                // Populate Dynamic Clearance Card
+                // Populate Dynamic Card
                 if (resRefId) resRefId.innerText = refId;
                 if (resBrandName) resBrandName.innerText = `"${brandVal}"`;
                 if (resClassBadge) resClassBadge.innerText = classVal;
                 if (resTimestamp) resTimestamp.innerText = `Initiated: ${formattedTime}`;
                 if (resPhoneDisplay) resPhoneDisplay.innerText = `+91 ${cleanPhone}`;
 
-                // Construct direct WhatsApp deep link with pre-filled case details
+                // Construct direct WhatsApp link
                 if (resWhatsAppDirectBtn) {
-                    const waMessage = `Hello Advocate Arun Kumar Jha, I just initiated an official Trademark Clearance Audit for "${brandVal}" (${classVal}) with Reference: ${refId}. Please share the clearance conflict analysis and filing recommendation.`;
+                    const waMessage = `Hello Advocate Arun Kumar Jha, I just submitted an availability check request for "${brandVal}" (${classVal}) with Reference: ${refId}.`;
                     resWhatsAppDirectBtn.href = `https://wa.me/919811343159?text=${encodeURIComponent(waMessage)}`;
                 }
 

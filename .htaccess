@@ -4,24 +4,28 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^(www\.)?agileipr\.com$ [NC]
 RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
 
+# --- Canonical Host & HTTPS ---
 # Redirect non-www to www (agiletrademarkfiling.com -> www.agiletrademarkfiling.com)
 RewriteCond %{HTTP_HOST} ^agiletrademarkfiling\.com$ [NC]
 RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
 
 # Force HTTPS
 RewriteCond %{HTTPS} off
-RewriteCond %{SERVER_PORT} 80
 RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
 
-# --- Extensionless URLs (.html rewriting & redirection) ---
-# Internally rewrite clean extensionless URL to .html if the file exists
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+# --- Extensionless URLs & Index Cleanup ---
+# 301 Redirect /index.html or /index to /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(index(\.html)?)[\s\?] [NC]
+RewriteRule ^ https://www.agiletrademarkfiling.com/ [R=301,L]
 
 # 301 Redirect direct requests ending in .html to clean URL (GET only)
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
+
+# Internally rewrite clean extensionless URL to .html if the file exists
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 # --- Security Headers ---
 <IfModule mod_headers.c>
