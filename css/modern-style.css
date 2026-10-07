@@ -319,38 +319,53 @@ h1, h2, h3, h4, h5, h6 {
   height: 72px;
 }
 
-.navbar-brand-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  flex-shrink: 0;
+.navbar-brand-wrap,
+a.navbar-brand.navbar-brand-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.navbar-brand-logo {
-  height: 38px;
-  width: auto;
+.navbar-brand-wrap .navbar-brand-logo,
+a.navbar-brand.navbar-brand-wrap .navbar-brand-logo {
+  height: 38px !important;
+  width: auto !important;
+  max-width: 48px !important;
+  display: block !important;
 }
 
-.navbar-brand-text {
-  display: flex;
-  flex-direction: column;
+.navbar-brand-wrap .navbar-brand-text,
+a.navbar-brand.navbar-brand-wrap .navbar-brand-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 
-.navbar-brand-name {
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+.navbar-brand-wrap .navbar-brand-name,
+a.navbar-brand.navbar-brand-wrap .navbar-brand-name {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif) !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.navbar-brand-tag {
-  font-size: 0.68rem;
-  color: #94A3B8;
-  font-weight: 500;
-  letter-spacing: 0.03em;
+.navbar-brand-wrap .navbar-brand-tag,
+a.navbar-brand.navbar-brand-wrap .navbar-brand-tag {
+  font-size: 0.68rem !important;
+  color: #94A3B8 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Center Nav Links */

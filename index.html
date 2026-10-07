@@ -1038,6 +1038,7 @@
                         <li><a href="/privacy-policy">Privacy Policy</a></li>
                         <li><a href="/terms-of-service">Terms of Service</a></li>
                         <li><a href="/cookie-policy">Cookie Policy</a></li>
+                        <li><a href="#disclaimer" id="footerDisclaimerBtn">BCI Legal Disclaimer</a></li>
                         <li><a href="/sitemap.xml">XML Sitemap</a></li>
                     </ul>
 
@@ -1117,16 +1118,27 @@
 
     <script>
     (function(){
-      var KEY='bci_disclaimer_v1', o=document.getElementById('bci-overlay'), b=document.getElementById('bci-accept'), prev;
-      function accepted(){try{return localStorage.getItem(KEY)==='1'}catch(e){return false}}
-      function save(){try{localStorage.setItem(KEY,'1')}catch(e){}}
-      function close(){o.classList.remove('open');document.body.style.overflow='';if(prev&&prev.focus)prev.focus()}
-      if(!accepted()){
-        prev=document.activeElement;
-        o.classList.add('open');
-        document.body.style.overflow='hidden';
-        b.focus();
+      var KEY='bci_disclaimer_session_v2', o=document.getElementById('bci-overlay'), b=document.getElementById('bci-accept'), prev;
+      // Clean up legacy persistent localStorage key if present
+      try{localStorage.removeItem('bci_disclaimer_v1')}catch(e){}
+      function accepted(){try{return sessionStorage.getItem(KEY)==='1'}catch(e){return false}}
+      function save(){try{sessionStorage.setItem(KEY,'1')}catch(e){}}
+      function close(){if(o){o.classList.remove('open')}document.body.style.overflow='';if(prev&&prev.focus)prev.focus()}
+      
+      window.openDisclaimerModal = function(){
+        if(o){
+          prev=document.activeElement;
+          o.classList.add('open');
+          document.body.style.overflow='hidden';
+          if(b) b.focus();
+        }
+      };
+
+      if(b){
         b.addEventListener('click',function(){save();close()});
+      }
+
+      if(o){
         o.addEventListener('keydown',function(e){
           if(e.key==='Tab'){
             var f=o.querySelectorAll('button,a[href]');
@@ -1134,6 +1146,19 @@
             else if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();f[0].focus()}
           }
         });
+      }
+
+      var triggerBtn = document.getElementById('footerDisclaimerBtn');
+      if(triggerBtn){
+        triggerBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          window.openDisclaimerModal();
+        });
+      }
+
+      // Show popup on every new session, or if URL has #disclaimer
+      if(!accepted() || window.location.hash === '#disclaimer'){
+        window.openDisclaimerModal();
       }
     })();
     </script>
