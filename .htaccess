@@ -18,6 +18,11 @@ RewriteRule ^(.*)$ https://www.agiletrademarkfiling.com/$1 [R=301,L]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(index(\.html)?)[\s\?] [NC]
 RewriteRule ^ https://www.agiletrademarkfiling.com/ [R=301,L]
 
+# Strip trailing slash from non-directories (prevents redirect chains and loops)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/(.+)/$
+RewriteRule ^ https://www.agiletrademarkfiling.com/%1 [R=301,L]
+
 # 301 Redirect direct requests ending in .html to clean URL (GET only)
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
