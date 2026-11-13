@@ -37,6 +37,8 @@ CANONICAL_PAGES = {
     "about-advocate.html": "/about-advocate",
     "trademark-hearing-delhi.html": "/trademark-hearing-delhi",
     "trademark-class-35-delhi.html": "/trademark-class-35-delhi",
+    "trademark-status-guide.html": "/trademark-status-guide",
+    "trademark-class-25-delhi.html": "/trademark-class-25-delhi",
 }
 
 NOINDEX_PAGES = {
