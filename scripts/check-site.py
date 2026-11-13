@@ -35,6 +35,8 @@ CANONICAL_PAGES = {
     "ipr-law-firm-delhi.html": "/ipr-law-firm-delhi",
     "trademark-lawyer-rohini.html": "/trademark-lawyer-rohini",
     "about-advocate.html": "/about-advocate",
+    "trademark-hearing-delhi.html": "/trademark-hearing-delhi",
+    "trademark-class-35-delhi.html": "/trademark-class-35-delhi",
 }
 
 NOINDEX_PAGES = {
@@ -300,7 +302,7 @@ def main():
         print("  ✓ Single <h1> per page verified")
         print("  ✓ All titles <= 60 chars, descriptions <= 155 chars")
         print("  ✓ Valid JSON-LD schemas and 100% FAQ visible text parity")
-        print("  ✓ sitemap.xml contains exactly the 8 canonical URLs")
+        print(f"  ✓ sitemap.xml contains exactly the {len(CANONICAL_PAGES)} canonical URLs")
         print("  ✓ 0 leftover placeholders ([CONFIRM, [TODO, [Month Year])")
         print("  ✓ 0 meta keywords tags")
         print("==================================================")
