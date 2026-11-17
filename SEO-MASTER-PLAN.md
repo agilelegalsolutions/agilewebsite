@@ -3,7 +3,7 @@
 **Practice Heritage:** Established 2017 | Led by Advocate Arun Kumar Jha (Delhi High Court & Trade Marks Registry, Dwarka)  
 **Main Chambers:** 2nd Floor, Garg Trade Center (G3S Mall), Sector 11, Rohini, New Delhi 110085  
 **Google Business Profile (GBP):** Agile Legal Solutions - Trademark & Patent Attorney (4.9 ★★★★★ | 47 Google Reviews)  
-**Last Updated:** November 13, 2026
+**Last Updated:** November 17, 2026
 
 ---
 
@@ -59,6 +59,18 @@
 * **Status:** COMPLETED in `.htaccess`.
 * **Fix:** Added direct single-hop trailing slash stripping (`RewriteCond %{REQUEST_URI} ^/(.+)/$` -> `/%1 [R=301,L]`) to prevent multi-hop redirect loops.
 
+### Activity 6: Week 1 Content Publishing
+* **Status:** COMPLETED.
+* **New Page 1:** `/trademark-status-guide` (Status translation guide: Objected, Formalities Chk Fail, Opposed, Advertised bef acc).
+* **New Page 2:** `/trademark-class-25-delhi` (Clothing, readymade garments, footwear, Gandhi Nagar/Chandni Chowk apparel market guide).
+* **Integration:** Added to `sitemap.xml`, `llms.txt`, `llm.txt`, `CANONICAL_PAGES`, and footer across all files.
+
+### Activity 7: Week 2 Content Publishing
+* **Status:** COMPLETED.
+* **New Page 3:** `/trademark-opposition-delhi` (Adversarial proceedings: Form TM-O, 2-month counter-statement, Rule 45/46 evidence affidavits, Dwarka Registry hearing defense).
+* **New Page 4:** `/trademark-class-42-delhi` (Software, SaaS, cloud platforms, cybersecurity, IT startups in Delhi NCR/Gurugram/Noida, Class 42 vs Class 9 vs Class 35 distinction).
+* **Integration:** Added to `sitemap.xml`, `llms.txt`, `llm.txt`, `CANONICAL_PAGES`, and footer across all 18 files.
+
 ---
 
 ## 3. The 6-Week Publishing Calendar (2 Pages / Week)
@@ -66,27 +78,27 @@
 To match competitor topical authority and dominate both Google Search and Generative AI (ChatGPT, Perplexity, Gemini), pages are published at a cadence of **2 pages per week**, prioritized by search volume and commercial intent.
 
 ```
-┌────────┬──────────────────────────────────┬────────────────────────────────────────────────────────┐
-│ Week   │ Target Pages                     │ Strategic Focus & Search Queries                       │
-├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ Week 1 │ 1. /trademark-status-guide       │ High-volume top-of-funnel queries: "objected",         │
-│ (Now)  │ 2. /trademark-class-25-delhi     │ "vienna codification", plus Delhi's garment industry   │
-├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ Week 2 │ 3. /trademark-opposition-delhi   │ High-ticket adversarial litigation: Form TM-O defense  │
-│        │ 4. /trademark-class-42-delhi     │ Software, SaaS, IT startups in Delhi NCR / Gurugram    │
-├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ Week 3 │ 5. /trademark-class-5-delhi      │ Pharmaceuticals & Ayurvedic similarity defense         │
-│        │ 6. /trademark-renewal-delhi      │ 10-year recurring renewal fees & restoration           │
-├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ Week 4 │ 7. /trademark-class-43-delhi     │ Restaurants, cafes & cloud kitchens across Delhi NCR   │
-│        │ 8. /trademark-assignment-delhi   │ Brand sales, licensing, mergers & transfers (Form TM-P)│
-├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ Week 5 │ 9. /copyright-registration-delhi │ Logo copyright NOC (Rule 45) & artistic works          │
-│        │ 10. /trademark-class-9-delhi     │ Electronics, electrical devices, mobile apps           │
-├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ Week 6 │ 11. /trademark-rectification-delhi│ Removing dead/abandoned marks from the Register        │
-│        │ 12. /trademark-litigation-delhi  │ Infringement, passing off, Delhi High Court IPD suits  │
-└────────┴──────────────────────────────────┴────────────────────────────────────────────────────────┘
+┌────────┬──────────────────────────────────┬────────────────────────────────────────────────────────┬─────────────┐
+│ Week   │ Target Pages                     │ Strategic Focus & Search Queries                       │ Status      │
+├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
+│ Week 1 │ 1. /trademark-status-guide       │ High-volume top-of-funnel queries: "objected",         │ COMPLETED   │
+│        │ 2. /trademark-class-25-delhi     │ "vienna codification", plus Delhi's garment industry   │             │
+├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
+│ Week 2 │ 3. /trademark-opposition-delhi   │ High-ticket adversarial litigation: Form TM-O defense  │ COMPLETED   │
+│        │ 4. /trademark-class-42-delhi     │ Software, SaaS, IT startups in Delhi NCR / Gurugram    │             │
+├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
+│ Week 3 │ 5. /trademark-class-5-delhi      │ Pharmaceuticals & Ayurvedic similarity defense         │ NEXT UP     │
+│        │ 6. /trademark-renewal-delhi      │ 10-year recurring renewal fees & restoration           │             │
+├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
+│ Week 4 │ 7. /trademark-class-43-delhi     │ Restaurants, cafes & cloud kitchens across Delhi NCR   │ Planned     │
+│        │ 8. /trademark-assignment-delhi   │ Brand sales, licensing, mergers & transfers (Form TM-P)│             │
+├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
+│ Week 5 │ 9. /copyright-registration-delhi │ Logo copyright NOC (Rule 45) & artistic works          │ Planned     │
+│        │ 10. /trademark-class-9-delhi     │ Electronics, electrical devices, mobile apps           │             │
+├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
+│ Week 6 │ 11. /trademark-rectification-delhi│ Removing dead/abandoned marks from the Register       │ Planned     │
+│        │ 12. /trademark-litigation-delhi  │ Infringement, passing off, Delhi High Court IPD suits  │             │
+└────────┴──────────────────────────────────┴────────────────────────────────────────────────────────┴─────────────┘
 ```
 
 ---

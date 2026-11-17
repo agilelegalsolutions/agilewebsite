@@ -39,6 +39,8 @@ CANONICAL_PAGES = {
     "trademark-class-35-delhi.html": "/trademark-class-35-delhi",
     "trademark-status-guide.html": "/trademark-status-guide",
     "trademark-class-25-delhi.html": "/trademark-class-25-delhi",
+    "trademark-opposition-delhi.html": "/trademark-opposition-delhi",
+    "trademark-class-42-delhi.html": "/trademark-class-42-delhi",
 }
 
 NOINDEX_PAGES = {
