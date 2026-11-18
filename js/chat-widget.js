@@ -47,20 +47,32 @@
   // DOM BUILDER
   // ==========================================================================
   function createWidgetDOM() {
+    // 0. Proactive Teaser Speech Bubble
+    const teaser = document.createElement('div');
+    teaser.className = 'legal-chat-teaser';
+    teaser.id = 'legalChatTeaser';
+    teaser.style.display = 'none';
+    teaser.innerHTML = `
+      <div class="legal-chat-teaser-text">
+        👋 Have a trademark query? Ask <strong>Agile AI</strong>
+      </div>
+      <button class="legal-chat-teaser-close" id="legalChatTeaserClose" aria-label="Dismiss">&times;</button>
+    `;
+
     // 1. Floating Trigger Button
     const trigger = document.createElement('div');
     trigger.className = 'legal-chat-trigger';
     trigger.id = 'legalChatTrigger';
     trigger.setAttribute('role', 'button');
-    trigger.setAttribute('aria-label', 'Open Legal AI Assistant');
+    trigger.setAttribute('aria-label', 'Open Agile AI Legal Assistant');
     trigger.innerHTML = `
       <div class="legal-chat-trigger-icon">
-        <i class="fas fa-balance-scale"></i>
+        <i class="fas fa-robot"></i>
         <div class="legal-chat-pulse"></div>
       </div>
       <div class="legal-chat-trigger-label">
-        <span class="legal-chat-trigger-title">Ask Advocate AI</span>
-        <span class="legal-chat-trigger-subtitle">4.9★ Instant Legal Info</span>
+        <span class="legal-chat-trigger-title">Agile AI</span>
+        <span class="legal-chat-trigger-subtitle">Instant Legal Info • 24/7</span>
       </div>
     `;
 
@@ -75,11 +87,11 @@
       <div class="legal-chat-header">
         <div class="legal-chat-header-profile">
           <div class="legal-chat-avatar">
-            <i class="fas fa-balance-scale"></i>
+            <i class="fas fa-robot"></i>
           </div>
           <div class="legal-chat-header-info">
             <div class="legal-chat-header-title">
-              Agile Legal AI
+              Agile AI
               <i class="fas fa-check-circle text-primary small" title="Verified Law Chambers"></i>
             </div>
             <div class="legal-chat-header-status">
@@ -121,6 +133,7 @@
       </div>
     `;
 
+    document.body.appendChild(teaser);
     document.body.appendChild(trigger);
     document.body.appendChild(windowEl);
   }
@@ -339,6 +352,8 @@
     createWidgetDOM();
 
     const trigger = document.getElementById('legalChatTrigger');
+    const teaser = document.getElementById('legalChatTeaser');
+    const teaserClose = document.getElementById('legalChatTeaserClose');
     const windowEl = document.getElementById('legalChatWindow');
     const closeBtn = document.getElementById('legalChatCloseBtn');
     const form = document.getElementById('legalChatForm');
@@ -350,6 +365,8 @@
       if (isOpen) {
         windowEl.classList.add('active');
         trigger.style.display = 'none';
+        if (teaser) teaser.style.display = 'none';
+        sessionStorage.setItem('agile_ai_opened', 'true');
 
         // Load history or initial welcome
         if (chatHistory.length === 0) {
@@ -370,7 +387,7 @@
           }
 
           if (chatHistory.length === 0) {
-            appendMessage('model', "Welcome to **Agile Legal Solutions®**. I am the AI Chamber Assistant for **Advocate Arun Kumar Jha** (4.9★ | 47 Reviews).\n\nHow can we assist your brand today with trademark filing, objection replies, or hearings?");
+            appendMessage('model', "Welcome to **Agile Legal Solutions®**. I am **Agile AI**, your 24/7 Chamber Assistant for **Advocate Arun Kumar Jha** (4.9★ | 47 Reviews).\n\nHow can I help protect your brand today with trademark filing, statutory fees, objection replies, or hearings?");
             renderQuickSuggestions(messages);
           }
         }
@@ -384,6 +401,41 @@
 
     trigger.addEventListener('click', toggleChat);
     closeBtn.addEventListener('click', toggleChat);
+
+    // Teaser events
+    if (teaser) {
+      teaser.addEventListener('click', (e) => {
+        if (e.target !== teaserClose) {
+          toggleChat();
+        }
+      });
+    }
+
+    if (teaserClose) {
+      teaserClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        teaser.style.display = 'none';
+        sessionStorage.setItem('agile_ai_teaser_dismissed', 'true');
+      });
+    }
+
+    // 1. Proactive Teaser Speech Bubble (appears after 3 seconds)
+    setTimeout(() => {
+      const hasInteracted = sessionStorage.getItem('agile_ai_opened') || sessionStorage.getItem('agile_ai_teaser_dismissed');
+      if (teaser && !isOpen && !hasInteracted) {
+        teaser.style.display = 'flex';
+      }
+    }, 3000);
+
+    // 2. Intelligent Auto-Open on Desktop (after 5 seconds, once per session)
+    setTimeout(() => {
+      const autoOpened = sessionStorage.getItem('agile_ai_auto_opened');
+      const isDesktop = window.innerWidth >= 992;
+      if (!autoOpened && !isOpen && isDesktop) {
+        sessionStorage.setItem('agile_ai_auto_opened', 'true');
+        toggleChat();
+      }
+    }, 5000);
 
     // Form Submit
     form.addEventListener('submit', (e) => {
