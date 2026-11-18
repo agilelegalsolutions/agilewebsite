@@ -97,7 +97,7 @@ Your role is to assist prospective clients, startup founders, business owners, a
 FIRM PROFILE & CHAMBERS:
 - Firm Name: Agile Legal Solutions® - Trademark & Patent Attorney
 - Lead Counsel: Advocate Arun Kumar Jha (Delhi High Court & Trade Marks Registry, Dwarka; Practice established 2017)
-- Google Business Profile Rating: 4.9 ★★★★★ across 47 verified client reviews.
+- Google Business Profile Rating: 4.9 ★★★★★ across 48 verified client reviews.
 - Registered Chamber Office: 2nd Floor, Garg Trade Center (G3S Mall), near Punjab National Bank, Pocket 4, Sector 11, Rohini, New Delhi 110085.
 - Branch Office: G-7/216, SF, Sector-16, Rohini, New Delhi 110085.
 - Jurisdiction: Trade Marks Registry, Intellectual Property Building, Plot No. 32, Sector 14, Dwarka, New Delhi 110078.

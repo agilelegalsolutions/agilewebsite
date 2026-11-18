@@ -2,7 +2,7 @@
 **Domain:** `https://www.agiletrademarkfiling.com`  
 **Practice Heritage:** Established 2017 | Led by Advocate Arun Kumar Jha (Delhi High Court & Trade Marks Registry, Dwarka)  
 **Main Chambers:** 2nd Floor, Garg Trade Center (G3S Mall), Sector 11, Rohini, New Delhi 110085  
-**Google Business Profile (GBP):** Agile Legal Solutions - Trademark & Patent Attorney (4.9 ★★★★★ | 47 Google Reviews)  
+**Google Business Profile (GBP):** Agile Legal Solutions - Trademark & Patent Attorney (4.9 ★★★★★ | 48 Google Reviews)  
 **Last Updated:** November 17, 2026
 
 ---
@@ -27,11 +27,11 @@
 * **Technical Implementation:**
   * Injected `aggregateRating` into `@type: LegalService` (#firm) across the entire site:
     * `ratingValue: "4.9"`
-    * `reviewCount: "47"`
+    * `reviewCount: "48"`
     * `priceRange: "₹₹"`
     * Exact business name match: `"Agile Legal Solutions - Trademark & Patent Attorney"`
-  * Injected visible trust badge in heroes: `★★★★★ 4.9 / 5.0 • 47 Google Reviews` with direct link to Google Maps listing.
-  * Updated all footer citation texts from outdated "43 reviews" to "47 reviews (as of November 2026)".
+  * Injected visible trust badge in heroes: `★★★★★ 4.9 / 5.0 • 48 Google Reviews` with direct link to Google Maps listing.
+  * Updated all footer citation texts from outdated "43 reviews" to "48 reviews (as of November 2026)".
 
 ### Activity 2: Keyword Cannibalization Resolution (Priority #2)
 * **Status:** COMPLETED.
@@ -112,7 +112,7 @@ Every page created must adhere to the standard library test suite (`scripts/chec
 4. **Meta Description:** Exactly `<= 155 characters`.
 5. **Headings:** Exactly one `<h1>` per page.
 6. **Schema (JSON-LD):**
-   * `@type: LegalService` with exact `#firm` ID, name, and `aggregateRating` (4.9 / 47 reviews).
+   * `@type: LegalService` with exact `#firm` ID, name, and `aggregateRating` (4.9 / 48 reviews).
    * `@type: BreadcrumbList`
    * `@type: FAQPage` with **100% word-for-word parity** between JSON-LD and visible HTML.
 7. **No Placeholders:** Zero leftover `[TODO`, `[CONFIRM`, `[Month Year]` strings.

@@ -387,7 +387,7 @@
           }
 
           if (chatHistory.length === 0) {
-            appendMessage('model', "Welcome to **Agile Legal Solutions®**. I am **Agile AI**, your 24/7 Chamber Assistant for **Advocate Arun Kumar Jha** (4.9★ | 47 Reviews).\n\nHow can I help protect your brand today with trademark filing, statutory fees, objection replies, or hearings?");
+            appendMessage('model', "Welcome to **Agile Legal Solutions®**. I am **Agile AI**, your 24/7 Chamber Assistant for **Advocate Arun Kumar Jha** (4.9★ | 48 Reviews).\n\nHow can I help protect your brand today with trademark filing, statutory fees, objection replies, or hearings?");
             renderQuickSuggestions(messages);
           }
         }
