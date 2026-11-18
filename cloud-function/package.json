@@ -1,0 +1,18 @@
+{
+  "name": "agile-trademark-chat-api",
+  "version": "1.0.0",
+  "description": "Secure, production-ready AI Legal Assistant backend for Agile Legal Solutions hosted on Google Cloud",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "functions-framework --target=chatHandler --port=8080",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "private": true
+}

@@ -1,0 +1,32 @@
+# ==============================================================================
+# Security & Secret Protection (.gitignore)
+# ==============================================================================
+
+# Never commit environment secret files
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.token
+*.credentials.json
+client_secrets.json
+
+# Never commit deployment scripts that may contain temporary keys or tokens
+cloud-function/deploy.sh
+cloud-function/.gcloudignore
+
+# Node.js dependencies & logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+
+# Operating System & IDE artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
