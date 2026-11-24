@@ -3,7 +3,7 @@
 **Practice Heritage:** Established 2017 | Led by Advocate Arun Kumar Jha (Delhi High Court & Trade Marks Registry, Dwarka)  
 **Main Chambers:** 2nd Floor, Garg Trade Center (G3S Mall), Sector 11, Rohini, New Delhi 110085  
 **Google Business Profile (GBP):** Agile Legal Solutions - Trademark & Patent Attorney (4.9 ★★★★★ | 48 Google Reviews)  
-**Last Updated:** November 17, 2026
+**Last Updated:** November 24, 2026
 
 ---
 
@@ -71,6 +71,12 @@
 * **New Page 4:** `/trademark-class-42-delhi` (Software, SaaS, cloud platforms, cybersecurity, IT startups in Delhi NCR/Gurugram/Noida, Class 42 vs Class 9 vs Class 35 distinction).
 * **Integration:** Added to `sitemap.xml`, `llms.txt`, `llm.txt`, `CANONICAL_PAGES`, and footer across all 18 files.
 
+### Activity 8: Week 3 Content Publishing
+* **Status:** COMPLETED.
+* **New Page 5:** `/trademark-class-5-delhi` (Pharmaceuticals, Ayurvedic medicines, nutraceuticals, Bhagirath Palace wholesale market context, Cadila Supreme Court deceptive similarity test, WHO INN Section 13 defense).
+* **New Page 6:** `/trademark-renewal-delhi` (10-year brand renewal under Form TM-R, statutory 6-month surcharge grace period, Section 25(4) restoration proceedings, mandatory O-3 notice defense before Trade Marks Registry Dwarka).
+* **Integration:** Added to `sitemap.xml`, `llms.txt`, `llm.txt`, `CANONICAL_PAGES`, and footer across all 20 files.
+
 ---
 
 ## 3. The 6-Week Publishing Calendar (2 Pages / Week)
@@ -87,10 +93,10 @@ To match competitor topical authority and dominate both Google Search and Genera
 │ Week 2 │ 3. /trademark-opposition-delhi   │ High-ticket adversarial litigation: Form TM-O defense  │ COMPLETED   │
 │        │ 4. /trademark-class-42-delhi     │ Software, SaaS, IT startups in Delhi NCR / Gurugram    │             │
 ├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
-│ Week 3 │ 5. /trademark-class-5-delhi      │ Pharmaceuticals & Ayurvedic similarity defense         │ NEXT UP     │
+│ Week 3 │ 5. /trademark-class-5-delhi      │ Pharmaceuticals & Ayurvedic similarity defense         │ COMPLETED   │
 │        │ 6. /trademark-renewal-delhi      │ 10-year recurring renewal fees & restoration           │             │
 ├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
-│ Week 4 │ 7. /trademark-class-43-delhi     │ Restaurants, cafes & cloud kitchens across Delhi NCR   │ Planned     │
+│ Week 4 │ 7. /trademark-class-43-delhi     │ Restaurants, cafes & cloud kitchens across Delhi NCR   │ NEXT UP     │
 │        │ 8. /trademark-assignment-delhi   │ Brand sales, licensing, mergers & transfers (Form TM-P)│             │
 ├────────┼──────────────────────────────────┼────────────────────────────────────────────────────────┼─────────────┤
 │ Week 5 │ 9. /copyright-registration-delhi │ Logo copyright NOC (Rule 45) & artistic works          │ Planned     │
