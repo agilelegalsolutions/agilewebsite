@@ -995,6 +995,9 @@
     <!-- =========================================================================
          11. FOOTER SECTION
          ========================================================================= -->
+        <!-- =========================================================================
+         FOOTER SECTION
+         ========================================================================= -->
     <footer class="legal-footer" id="footer">
         <div class="modern-container">
             <div class="footer-grid">
@@ -1086,8 +1089,14 @@
             </div>
 
             <!-- Bar Council Mandatory Legal Disclaimer -->
-            <div class="footer-disclaimer-card">
-                <strong>Disclaimer:</strong> This page is for general information only and does not constitute legal advice or a solicitation. Contacting us does not create an advocate-client relationship. As per the rules of the Bar Council of India, law firms and advocates are not permitted to solicit work or advertise. By accessing this website, the user acknowledges that the information provided is solely for informational purposes regarding trademark procedures and does not constitute an advertisement, solicitation, or legal advice.
+            <div class="footer-disclaimer-card" id="disclaimer">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="fas fa-balance-scale text-warning fs-6"></i>
+                    <strong class="text-white">Bar Council of India Mandatory Disclaimer</strong>
+                </div>
+                <p class="mb-0">
+                    This page is for general information only and does not constitute legal advice or a solicitation. Contacting us does not create an advocate-client relationship. As per the rules of the Bar Council of India, law firms and advocates are not permitted to solicit work or advertise. By accessing this website, the user acknowledges that the information provided is solely for informational purposes regarding trademark procedures and does not constitute an advertisement, solicitation, or legal advice.
+                </p>
             </div>
 
             <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25 small text-muted">
@@ -1121,21 +1130,11 @@
     <!-- Custom Modern LegalTech JavaScript -->
     <script defer src="js/main.js"></script>
 
-    <!-- ===== BCI DISCLAIMER POPUP: paste before </body> on every page ===== -->
-    <style>
-    #bci-overlay{position:fixed;inset:0;z-index:9999;background:rgba(10,20,30,.78);display:none;align-items:center;justify-content:center;padding:16px}
-    #bci-overlay.open{display:flex}
-    #bci-box{background:#fff;color:#12263A;max-width:640px;max-height:90vh;overflow:auto;border-radius:8px;padding:28px;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-    #bci-box h2{margin:0 0 12px;font:700 1.5rem Georgia,serif}
-    #bci-box ul{padding-left:1.2em;margin:12px 0}
-    #bci-box li{margin-bottom:8px}
-    #bci-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    #bci-actions button,#bci-actions a{padding:12px 22px;border-radius:6px;font:600 1rem system-ui,sans-serif;cursor:pointer;text-decoration:none;text-align:center}
-    #bci-accept{background:#1D5C63;color:#fff;border:2px solid #1D5C63}
-    #bci-leave{background:transparent;color:#12263A;border:2px solid #12263A}
-    #bci-box :focus-visible{outline:3px solid #B7791F;outline-offset:2px}
-    </style>
+    
+    <!-- Keep the plain-text footer disclaimer too, for visitors with scripts blocked -->
+    <script src="js/chat-widget.js" defer></script>
 
+    <!-- Bar Council of India Mandatory Disclaimer Modal -->
     <div id="bci-overlay" role="dialog" aria-modal="true" aria-labelledby="bci-title" aria-describedby="bci-text">
       <div id="bci-box">
         <h2 id="bci-title">Disclaimer</h2>
@@ -1159,7 +1158,6 @@
     <script>
     (function(){
       var KEY='bci_disclaimer_session_v2', o=document.getElementById('bci-overlay'), b=document.getElementById('bci-accept'), prev;
-      // Clean up legacy persistent localStorage key if present
       try{localStorage.removeItem('bci_disclaimer_v1')}catch(e){}
       function accepted(){try{return sessionStorage.getItem(KEY)==='1'}catch(e){return false}}
       function save(){try{sessionStorage.setItem(KEY,'1')}catch(e){}}
@@ -1196,14 +1194,11 @@
         });
       }
 
-      // Show popup on every new session, or if URL has #disclaimer
       if(!accepted() || window.location.hash === '#disclaimer'){
         window.openDisclaimerModal();
       }
     })();
     </script>
-    <!-- Keep the plain-text footer disclaimer too, for visitors with scripts blocked -->
-    <script src="js/chat-widget.js" defer></script>
 </body>
 
 </html>

@@ -1701,14 +1701,121 @@ a.navbar-brand.navbar-brand-wrap .navbar-brand-tag {
 }
 
 .footer-disclaimer-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 4px solid #F59E0B;
   border-radius: var(--radius-md);
-  padding: 14px;
-  font-size: 0.76rem;
-  line-height: 1.5;
-  color: #64748B;
+  padding: 16px 20px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #CBD5E1;
   margin: 36px 0 22px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.footer-disclaimer-card strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.footer-disclaimer-card p {
+  color: #CBD5E1;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Bar Council of India Mandatory Disclaimer Modal
+   -------------------------------------------------------------------------- */
+#bci-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 20, 30, 0.82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+#bci-overlay.open {
+  display: flex;
+}
+
+#bci-box {
+  background: #FFFFFF;
+  color: #12263A;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 10px;
+  padding: 28px;
+  font: 15px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+#bci-box h2 {
+  margin: 0 0 12px;
+  font: 700 1.5rem Georgia, serif;
+  color: #0F172A;
+  border-bottom: 2px solid #F59E0B;
+  padding-bottom: 8px;
+}
+
+#bci-box ul {
+  padding-left: 1.2em;
+  margin: 12px 0;
+}
+
+#bci-box li {
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+#bci-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+#bci-actions button,
+#bci-actions a {
+  padding: 12px 22px;
+  border-radius: 6px;
+  font: 600 0.95rem system-ui, sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+#bci-accept {
+  background: #1D5C63;
+  color: #FFFFFF;
+  border: 2px solid #1D5C63;
+  transition: background 0.2s ease;
+}
+
+#bci-accept:hover {
+  background: #15454b;
+}
+
+#bci-leave {
+  background: transparent;
+  color: #12263A;
+  border: 2px solid #12263A;
+  transition: all 0.2s ease;
+}
+
+#bci-leave:hover {
+  border-color: #64748B;
+  background: #F1F5F9;
+}
+
+#bci-box :focus-visible {
+  outline: 3px solid #B7791F;
+  outline-offset: 2px;
 }
 
 /* --------------------------------------------------------------------------

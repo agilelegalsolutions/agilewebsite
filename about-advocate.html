@@ -380,6 +380,9 @@
     </main>
 
     <!-- Footer -->
+        <!-- =========================================================================
+         FOOTER SECTION
+         ========================================================================= -->
     <footer class="legal-footer" id="footer">
         <div class="modern-container">
             <div class="footer-grid">
@@ -471,8 +474,14 @@
             </div>
 
             <!-- Bar Council Mandatory Legal Disclaimer -->
-            <div class="footer-disclaimer-card">
-                <strong>Disclaimer:</strong> This page is for general information only and does not constitute legal advice or a solicitation. Contacting us does not create an advocate-client relationship. As per the rules of the Bar Council of India, law firms and advocates are not permitted to solicit work or advertise. By accessing this website, the user acknowledges that the information provided is solely for informational purposes regarding trademark procedures and does not constitute an advertisement, solicitation, or legal advice.
+            <div class="footer-disclaimer-card" id="disclaimer">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="fas fa-balance-scale text-warning fs-6"></i>
+                    <strong class="text-white">Bar Council of India Mandatory Disclaimer</strong>
+                </div>
+                <p class="mb-0">
+                    This page is for general information only and does not constitute legal advice or a solicitation. Contacting us does not create an advocate-client relationship. As per the rules of the Bar Council of India, law firms and advocates are not permitted to solicit work or advertise. By accessing this website, the user acknowledges that the information provided is solely for informational purposes regarding trademark procedures and does not constitute an advertisement, solicitation, or legal advice.
+                </p>
             </div>
 
             <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25 small text-muted">
@@ -486,5 +495,71 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- AI Legal Assistant Chatbot Widget -->
     <script src="js/chat-widget.js" defer></script>
+
+    <!-- Bar Council of India Mandatory Disclaimer Modal -->
+    <div id="bci-overlay" role="dialog" aria-modal="true" aria-labelledby="bci-title" aria-describedby="bci-text">
+      <div id="bci-box">
+        <h2 id="bci-title">Disclaimer</h2>
+        <div id="bci-text">
+          <p>The rules of the Bar Council of India do not permit advocates to advertise or solicit work. By clicking "I accept", you acknowledge and confirm that:</p>
+          <ul>
+            <li>you are seeking information about Agile Legal Solutions and its advocates of your own accord;</li>
+            <li>there has been no advertisement, personal communication, solicitation, invitation or inducement by the firm or any of its members;</li>
+            <li>the content of this website is for general information only and is not legal advice;</li>
+            <li>using this website does not create an advocate-client relationship; and</li>
+            <li>the firm is not liable for any action taken in reliance on information on this website.</li>
+          </ul>
+        </div>
+        <div id="bci-actions">
+          <button type="button" id="bci-accept">I accept</button>
+          <a id="bci-leave" href="https://www.google.com/">Leave site</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    (function(){
+      var KEY='bci_disclaimer_session_v2', o=document.getElementById('bci-overlay'), b=document.getElementById('bci-accept'), prev;
+      try{localStorage.removeItem('bci_disclaimer_v1')}catch(e){}
+      function accepted(){try{return sessionStorage.getItem(KEY)==='1'}catch(e){return false}}
+      function save(){try{sessionStorage.setItem(KEY,'1')}catch(e){}}
+      function close(){if(o){o.classList.remove('open')}document.body.style.overflow='';if(prev&&prev.focus)prev.focus()}
+      
+      window.openDisclaimerModal = function(){
+        if(o){
+          prev=document.activeElement;
+          o.classList.add('open');
+          document.body.style.overflow='hidden';
+          if(b) b.focus();
+        }
+      };
+
+      if(b){
+        b.addEventListener('click',function(){save();close()});
+      }
+
+      if(o){
+        o.addEventListener('keydown',function(e){
+          if(e.key==='Tab'){
+            var f=o.querySelectorAll('button,a[href]');
+            if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f[f.length-1].focus()}
+            else if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();f[0].focus()}
+          }
+        });
+      }
+
+      var triggerBtn = document.getElementById('footerDisclaimerBtn');
+      if(triggerBtn){
+        triggerBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          window.openDisclaimerModal();
+        });
+      }
+
+      if(!accepted() || window.location.hash === '#disclaimer'){
+        window.openDisclaimerModal();
+      }
+    })();
+    </script>
 </body>
 </html>
