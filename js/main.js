@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
                 // Collapse mobile navbar
-                const navbarCollapse = document.getElementById('navbarNav');
+                const navbarCollapse = document.getElementById('navbarNav') || document.getElementById('mobileNavMenu');
                 if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                     if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
                         const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);

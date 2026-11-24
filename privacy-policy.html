@@ -187,20 +187,66 @@
 <body>
     <!-- Accessibility Skip Navigation -->
     <a href="#main-content" class="visually-hidden-focusable skip-link btn btn-primary position-absolute top-0 start-0 z-index-1000 p-2 m-2">Skip to main content</a>
-    <!-- Navigation -->
-    <header class="modern-header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
+        <header class="legal-header" id="main-header">
+        <div class="modern-container">
+            <div class="navbar-inner-wrap">
+                <!-- Left: Brand Logo & Title -->
                 <a class="navbar-brand-wrap" href="/">
-                    <img src="images/agile-logo-final.svg" alt="Agile Legal Solutions Logo" class="navbar-brand-logo" width="220" height="42" fetchpriority="high" decoding="async">
+                    <img src="images/agile-logo-final.svg" alt="Agile Legal Solutions Logo" class="navbar-brand-logo"
+                        width="220" height="42" fetchpriority="high" decoding="async">
                     <div class="navbar-brand-text d-none d-sm-flex">
                         <span class="navbar-brand-name">Agile Legal Solutions®</span>
                         <span class="navbar-brand-tag">Advocates &amp; Trademark Attorneys</span>
                     </div>
                 </a>
-                <a href="/" class="btn btn-outline-light btn-sm ms-auto"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+
+                <!-- Center: Primary Nav Links -->
+                <ul class="navbar-nav-center">
+                    <li><a class="nav-link-custom" href="/trademark-search-india">TM Search</a></li>
+                    <li><a class="nav-link-custom" href="/trademark-registration-delhi">Delhi Registration</a></li>
+                    <li><a class="nav-link-custom" href="/trademark-lawyer-delhi">Trademark Lawyer</a></li>
+                    <li><a class="nav-link-custom" href="/ipr-law-firm-delhi">IPR Law Firm</a></li>
+                    <li><a class="nav-link-custom" href="/trademark-objection-reply">Objection Reply</a></li>
+                </ul>
+
+                <!-- Right: Actions & Mobile Toggle -->
+                <div class="navbar-actions-right">
+                    <a href="tel:+919811343159" class="nav-phone-link">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 98113 43159</span>
+                    </a>
+                    <a href="https://wa.me/919811343159?text=Hello%20Advocate%2C%20I%20want%20to%20consult%20regarding%20a%20trademark."
+                        class="btn-legal-primary nav-cta-btn btn-emerald" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp me-1"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <button class="btn btn-outline-light border-0 d-lg-none p-1" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mobileNavMenu" aria-controls="mobileNavMenu" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-bars fs-4 text-white"></i>
+                    </button>
+                </div>
             </div>
-        </nav>
+
+            <!-- Mobile Collapsible Menu -->
+            <div class="collapse d-lg-none" id="mobileNavMenu">
+                <div class="mobile-nav-collapse">
+                    <ul class="list-unstyled mb-3">
+                        <li class="mb-2"><a class="nav-link-custom d-block py-2" href="/trademark-search-india">TM Search India Guide</a></li>
+                        <li class="mb-2"><a class="nav-link-custom d-block py-2" href="/trademark-registration-delhi">Trademark Registration Delhi</a></li>
+                        <li class="mb-2"><a class="nav-link-custom d-block py-2" href="/trademark-lawyer-delhi">Trademark Lawyer in Delhi</a></li>
+                        <li class="mb-2"><a class="nav-link-custom d-block py-2" href="/ipr-law-firm-delhi">IPR Law Firm in Delhi</a></li>
+                        <li class="mb-2"><a class="nav-link-custom d-block py-2" href="/trademark-objection-reply">Trademark Objection Reply</a></li>
+                        <li class="mb-2"><a class="nav-link-custom d-block py-2" href="/trademark-lawyer-rohini">Rohini Chamber Office</a></li>
+                        <li class="mb-2"><a class="nav-link-custom d-block py-2" href="/about-advocate">About Advocate</a></li>
+                    </ul>
+                    <a href="tel:+919811343159"
+                        class="btn btn-outline-light w-100 py-2 d-flex align-items-center justify-content-center gap-2 mb-2">
+                        <i class="fas fa-phone-alt"></i> +91 98113 43159
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- Main Content -->

@@ -311,6 +311,10 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
+.legal-header + main {
+  padding-top: 85px;
+}
+
 .navbar-inner-wrap {
   display: flex;
   align-items: center;
